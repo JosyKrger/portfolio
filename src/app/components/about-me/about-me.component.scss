@@ -1,0 +1,47 @@
+@import '../../../styles.scss';
+@import '../../../mixin.scss';
+
+section {
+    margin-top: 47px;
+    background-color: #1C1C1C;
+    padding-top: 50px;
+    height: 110vh;
+
+    .section_content {
+        height: 110vh;
+        @include formattingContent($jc: space-between);
+        @include contentPadding();
+        max-width: 1260px;
+    }
+}
+
+.my_picture {
+    margin-top: 60px;
+
+    img {
+        position: absolute;
+        max-width: 35%;
+        object-fit: cover;
+        border-radius: 25px;
+    }
+
+
+    .background {
+        z-index: 1;
+        margin-top: 40px;
+    }
+
+    .foreground {
+        z-index: 2;
+        margin-left: 40px;
+    }
+}
+
+.about_me {
+    width: 40%;
+    margin-top: 60px;
+
+    .info_container {
+        @include infoBox();
+    }
+}

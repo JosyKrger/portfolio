@@ -1,0 +1,108 @@
+@import '../../../mixin.scss';
+
+section {
+    position: absolute;
+}
+
+nav {
+    @include dFlex($jc: space-between !important);
+    max-width: 1262px;
+    border: 1px solid red;
+    padding-top: 30px;
+    @include contentPadding();
+
+    .links {
+        @include dFlex();
+    }
+
+    a {
+        text-decoration: none;
+        margin-left: 20px;
+        color: #FFFFFF;
+        font-family: 'Fira Code', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+    a::after {
+        content: '•';
+        position: relative;
+        bottom: -20px;
+        right: 50%;
+        transform: translateX(-50%);
+        font-size: 24px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: #3DCFB6;
+    }
+
+    a:hover::after {
+        opacity: 1;
+    }
+
+    a:hover {
+        color: #3DCFB6;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Karla", sans-serif;
+
+    &:hover {
+
+        h4 {
+            -webkit-text-stroke: 1px #3DCFB6;
+            color: transparent;
+        }
+
+        h3 {
+            -webkit-text-stroke: 1px #FFFFFF;
+            color: transparent;
+        }
+
+    }
+
+    .name {
+        color: #FFFFFF;
+        text-align: left;
+
+        h3 {
+            margin: 0;
+            font-size: 38px;
+        }
+
+        .lastname {
+            margin-top: -15px;
+        }
+    }
+}
+
+.abbreviation {
+    display: flex;
+
+    h4 {
+        font-size: 45px;
+        margin: 0;
+        margin-bottom: -5px;
+    }
+
+    .last_name_letter {
+        margin-left: -8px;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 40px;
+        color: #FFFFFF;
+    }
+
+    &:hover {
+        h3 {
+            -webkit-text-stroke: 1px #FFFFFF;
+            color: transparent;
+        }
+    }
+}

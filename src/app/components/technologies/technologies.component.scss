@@ -1,0 +1,83 @@
+@import '../../../styles.scss';
+@import '../../../mixin.scss';
+
+section {
+    background-color: #1C1C1C;
+    background-image: url(/assets/img/skills-background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .section_content {
+        max-width: 1260px;
+        @include formattingContent($jc: space-between);
+        @include contentPadding();
+    }
+}
+
+.about_skills{
+    width: 45%;
+    margin-top: 80px;
+    @include btnStyling();
+
+    h4 {
+        margin-top: 0;
+    }
+
+    .info_container {
+        @include infoBox();
+
+        .content_sector {
+            flex-direction: column;
+            align-items: flex-start !important;
+        }
+
+        span {
+            color: #FFFFFF;
+        }
+
+        .btn_section {
+            margin-top: 50px;
+            text-align: start;
+
+            button {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.skill_icon_section {
+    width: 45%;
+    display: flex;
+
+    .skill_icon_content {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 135px;
+        flex-wrap: wrap;
+        align-content: baseline;
+        gap: 55px;
+
+        .single_icon {
+            height: 100px;
+            width: 100px;
+
+            img {
+                width: 60px;
+                height: 60px;
+                transition: transform 0.3s;
+    
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+
+            p {
+                color: white;
+                margin-top: 8px;
+                font-size: 18px;
+                font-family: 'Fira Code', sans-serif;
+            }
+        }
+    }
+}

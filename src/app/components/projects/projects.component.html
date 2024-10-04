@@ -1,0 +1,57 @@
+<section>
+    <div class="section_content">
+        <div class="about_projects">
+            <h4>Portfolio</h4>
+            <div class="info_container">
+                <h1>Featured Projects</h1>
+                <div class="info_content">
+                    <p>Explore a selection of my work here - Interact with <br> projects to see my skills in action.</p>
+                    <div class="content_sector join_sector" (mouseover)="showJoinProject = true"
+                        (mouseout)="showJoinProject = false">
+                        <div class="second_headline">
+                            <h2>Join</h2>
+                        </div>
+                        <div class="project_skills">
+                            <p>HTML <span>|</span> CSS <span>|</span> JavaScript <span>|</span> Firebase</p>
+                        </div>
+                    </div>
+                    <div class="content_sector el_pollo_loco_sector" (mouseover)="showElPolloLocoProject = true"
+                        (mouseout)="showElPolloLocoProject = false">
+                        <div class="second_headline">
+                            <h2>El Pollo Loco</h2>
+                        </div>
+                        <div class="project_skills">
+                            <p>HTML <span>|</span> CSS <span>|</span> JavaScript</p>
+                        </div>
+                    </div>
+                    <div class="content_sector da_bubble_sector" (mouseover)="showDaBubbleProject = true"
+                        (mouseout)="showDaBubbleProject = false">
+                        <div class="second_headline">
+                            <h2>DA Bubble</h2>
+                        </div>
+                        <div class="project_skills">
+                            <p>Angular <span>|</span> Typescript <span>|</span> Firebase</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projects_preview">
+            <div class="single_project">
+                <div class="join_project arrangement" [ngClass]="{'hidden': !showJoinProject}">
+                    <img class="foreground" src="../../../assets/img/join-preview.png" alt="">
+                    <img class="background" src="../../../assets/img/backgorund-project-picture.png" alt="">
+                </div>
+                <div class="el_pollo_loco_project arrangement" [ngClass]="{'hidden': !showElPolloLocoProject}">
+                    <img class="foreground" src="../../../assets/img/el-pollo-loco-preview.png" alt="">
+                    <img class="background" src="../../../assets/img/backgorund-project-picture.png" alt="">
+                </div>
+                <div class="da_bubble_project arrangement" [ngClass]="{'hidden': !showDaBubbleProject}">
+                    <img class="foreground" src="../../../assets/img/el-pollo-loco-preview.png" alt="">
+                    <img class="background" src="../../../assets/img/backgorund-project-picture.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

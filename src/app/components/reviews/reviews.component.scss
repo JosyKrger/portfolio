@@ -1,0 +1,68 @@
+@import '../../../styles.scss';
+@import '../../../mixin.scss';
+
+section {
+    background-color: #1C1C1C;
+    height: 80vh;
+
+    .section_content {
+        height: 80vh;
+        max-width: 1260px;
+        @include contentPadding();
+    }
+
+    .headline {
+        margin-top: 120px;
+
+        h1 {
+            font-family: 'Fira Code', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            color: #3DCFB6;
+        }
+    }
+}
+
+.review_container {
+    margin-top: 50px;
+    @include formattingContent($jc: space-between);
+
+    .review {
+        height: 170px;
+        width: 370px;
+        padding: 15px;
+        color: #FFFFFF;
+        // visibility: visible; 
+        border-radius: 25px;
+        background-color: #1F2E2B;
+        border: 1px solid #3DCFB6;
+
+        &.active {
+            background-color: #26524B;
+            // visibility: visible; 
+        }
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #3DCFB6;
+    }
+}
+
+.carousel-controls {
+    margin-top: 40px;
+
+    button {
+        background-color: transparent;
+        color: #3DCFB6;
+        border: none; 
+        font-size: 2rem;
+        cursor: pointer;
+        margin: 0 10px; 
+    }
+
+    button:hover {
+        color: #FFFFFF; 
+    }
+}
