@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
-  checkboxIsBlank: string = '/assets/img/checkbox_blank.png';
-  checkboxIsChecked: string = '/assets/img/checkbox_checked.png';
+  checkboxIsBlank: string = 'assets/img/checkbox_blank.png';
+  checkboxIsChecked: string = 'assets/img/checkbox_checked.png';
   checkboxImage: string = this.checkboxIsBlank;
 
   toggleCheckbox() {
