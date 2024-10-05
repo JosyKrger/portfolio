@@ -123,19 +123,45 @@ section {
 }
 
 .banner {
-    @include dFlex($jc: space-between);
+    @include dFlex($jc: flex-start); 
     background-color: rgba(0, 0, 0, 0.2);
     margin-top: -110px;
     rotate: -3deg;
     height: 62px;
     backdrop-filter: blur(2px);
     width: 100vw;
-    overflow: hidden;
+    overflow: hidden; 
 
-    p {
-        font-family: 'Karla', sans-serif;
-        font-weight: 400;
-        font-size: 30px;
-        color: #3DCFB6;
+    .banner_content {
+        display: flex;
+        white-space: nowrap; 
+        animation: scrollBanner 17s linear infinite;
+    }
+
+    @keyframes scrollBanner {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-50%); /* Verschiebt den Inhalt genau um 50%, da wir ihn doppelt haben */
+        }
+    }
+
+    .content-inner {
+        display: inline-flex;
+        align-items: center; 
+        
+        p {
+            font-family: 'Karla', sans-serif;
+            font-weight: 400;
+            font-size: 30px;
+            color: #3DCFB6;
+            margin: 0 40px;
+        }
+
+        img {
+            margin: 0 20px;
+            height: 8px;
+        }
     }
 }
