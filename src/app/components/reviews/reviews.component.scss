@@ -3,7 +3,7 @@
 
 section {
     background-color: #1C1C1C;
-    height: 80vh;
+    height: 50vh;
 
     .section_content {
         height: 80vh;
@@ -23,46 +23,108 @@ section {
     }
 }
 
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    height: 280px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
 .review_container {
-    margin-top: 50px;
-    @include formattingContent($jc: space-between);
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    width: 100%; 
+    position: relative;
+    margin: auto;
+}
 
-    .review {
-        height: 170px;
-        width: 370px;
-        padding: 15px;
-        color: #FFFFFF;
-        // visibility: visible; 
-        border-radius: 25px;
-        background-color: #1F2E2B;
-        border: 1px solid #3DCFB6;
+.review {
+    width: 500px;
+    height: 150px;
+    opacity: 0.5;
+    padding: 25px;
+    margin-top: -50px;
+    background-color: #1F2E2B;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 25px;
+    color: #FFFFFF;
+    border: 1px solid #3DCFB6;
+    text-align: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(0);
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Karla', sans-serif;
+    word-spacing: 1px;
 
-        &.active {
-            background-color: #26524B;
-            // visibility: visible; 
-        }
+    p {
+        text-align: justify;
+        font-size: 18px;
+        margin: 0;
     }
 
-    h2 {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-        color: #3DCFB6;
+    span {
+        text-align: end;
+        font-size: 16px;
     }
 }
 
-.carousel-controls {
-    margin-top: 40px;
+.active {
+    opacity: 1;
+    background-color: #26524B;
+    transform: translateX(0) scale(1.05); /* Die mittlere Review bleibt zentriert und wird leicht skaliert */
+    z-index: 1; /* Die aktive Review bleibt im Vordergrund */
+}
 
-    button {
+.prev-review {
+    transform: translateX(-120%); /* Die vorherige Review wird nach links geschoben */
+}
+
+.next-review {
+    transform: translateX(120%); /* Die nächste Review wird nach rechts geschoben */
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+
+    .prev, .next {
         background-color: transparent;
         color: #3DCFB6;
-        border: none; 
+        border: none;
         font-size: 2rem;
         cursor: pointer;
-        margin: 0 10px; 
+        margin: 0 20px;
     }
 
-    button:hover {
-        color: #FFFFFF; 
+    .prev:hover, .next:hover {
+        color: #FFFFFF;
+    }
+}
+
+.carousel-indicators {
+    display: flex;
+    gap: 10px;
+
+    span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: #3DCFB6;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+    .active {
+        background-color: #FFFFFF;
     }
 }

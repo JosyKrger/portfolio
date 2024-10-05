@@ -26,15 +26,45 @@ export class ReviewsComponent {
   ];
 
   currentIndex = 0;
-
-  prevReview() {
-    console.log('vorhere Review');
-    this.currentIndex = (this.currentIndex > 0) ? this.currentIndex - 1 : this.reviews.length - 1;
-  }
+  reviewCount = this.reviews.length;
 
   nextReview() {
-    console.log('nächste Review');
-    this.currentIndex = (this.currentIndex < this.reviews.length - 1) ? this.currentIndex + 1 : 0;
+    this.currentIndex = (this.currentIndex + 1) % this.reviewCount;
+    this.updateCarousel();
+  }
+
+  prevReview() {
+    this.currentIndex = (this.currentIndex - 1 + this.reviewCount) % this.reviewCount;
+    this.updateCarousel();
+  }
+
+  updateCarousel() {
+    const reviews = document.querySelectorAll('.review');
+    
+    reviews.forEach((review, index) => {
+      review.classList.remove('active', 'prev-review', 'next-review', 'hidden');
+      
+      // Set active class to the current index
+      if (index === this.currentIndex) {
+        review.classList.add('active');
+      } 
+      // Set previous class to the previous index
+      else if (index === (this.currentIndex - 1 + this.reviewCount) % this.reviewCount) {
+        review.classList.add('prev-review');
+      } 
+      // Set next class to the next index
+      else if (index === (this.currentIndex + 1) % this.reviewCount) {
+        review.classList.add('next-review');
+      } 
+      // Hide all other reviews
+      else {
+        review.classList.add('hidden');
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.updateCarousel();
   }
 }
 
