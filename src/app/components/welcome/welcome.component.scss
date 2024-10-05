@@ -39,7 +39,11 @@ section {
         background-color: #3DCFB6;
     }
 
-    .animated_button img {
+    p {
+        color: #FFFFFF;
+    }
+
+    .animated_button p {
         animation: float 3s ease-in-out infinite;
     }
 }
