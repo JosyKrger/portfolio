@@ -27,7 +27,8 @@ section {
     button {
         border: 1px solid #3DCFB6;
         background-color: transparent;
-        padding: 13px 9px;
+        height: 50px;
+        width: 25px;
         border-radius: 25px;
     }
 
@@ -36,6 +37,24 @@ section {
         width: 1px;
         height: 246px;
         background-color: #3DCFB6;
+    }
+
+    .animated_button img {
+        animation: float 3s ease-in-out infinite;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(10px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(10px);
     }
 }
 
@@ -108,7 +127,7 @@ section {
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-    
+
         img:hover::after {
             opacity: 1;
         }
@@ -123,18 +142,18 @@ section {
 }
 
 .banner {
-    @include dFlex($jc: flex-start); 
+    @include dFlex($jc: flex-start);
     background-color: rgba(0, 0, 0, 0.2);
     margin-top: -110px;
     rotate: -3deg;
     height: 62px;
     backdrop-filter: blur(2px);
     width: 100vw;
-    overflow: hidden; 
+    overflow: hidden;
 
     .banner_content {
         display: flex;
-        white-space: nowrap; 
+        white-space: nowrap;
         animation: scrollBanner 17s linear infinite;
     }
 
@@ -142,15 +161,17 @@ section {
         0% {
             transform: translateX(0%);
         }
+
         100% {
-            transform: translateX(-50%); /* Verschiebt den Inhalt genau um 50%, da wir ihn doppelt haben */
+            transform: translateX(-50%);
+            /* Verschiebt den Inhalt genau um 50%, da wir ihn doppelt haben */
         }
     }
 
     .content-inner {
         display: inline-flex;
-        align-items: center; 
-        
+        align-items: center;
+
         p {
             font-family: 'Karla', sans-serif;
             font-weight: 400;
