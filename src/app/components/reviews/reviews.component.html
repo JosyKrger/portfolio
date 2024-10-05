@@ -13,12 +13,15 @@
                 </ng-container>
             </div>
             <div class="carousel-controls">
-                <button class="prev" (click)="prevReview()">←</button>
+                <button class="prev" (click)="prevReview()"><img [src]="arrowBackImageSrc"
+                        (mouseover)="arrowBackImageSrc='assets/img/arrow-back-green.png'"
+                        (mouseout)="arrowBackImageSrc='assets/img/arrow-back-white.png'" alt=""></button>
                 <div class="carousel-indicators">
-                    <span *ngFor="let review of reviews; let i = index"
-                        [class.active]="i === currentIndex"></span>
+                    <span *ngFor="let review of reviews; let i = index" [class.active]="i === currentIndex"></span>
                 </div>
-                <button class="next" (click)="nextReview()">→</button>
+                <button class="next" (click)="nextReview()"><img [src]="arrowForwardImageSrc"
+                        (mouseover)="arrowForwardImageSrc='assets/img/arrow-forward-green.png'"
+                        (mouseout)="arrowForwardImageSrc='assets/img/arrow-forward-white.png'" alt=""></button>
             </div>
         </div>
     </div>

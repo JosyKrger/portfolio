@@ -10,4 +10,12 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   imageSrc: string = 'assets/img/english.png';
+
+  translateWebsite() {
+    if (this.imageSrc === 'assets/img/english.png') {
+      this.imageSrc = 'assets/img/german.png'; // Bildwechsel bei Klick
+    } else {
+      this.imageSrc = 'assets/img/english.png'; // Zurückwechseln
+    }
+  }
 }

@@ -2,9 +2,9 @@
     <div class="section_content">
         <div class="welcome_content">
             <div class="arrow_down">
-                <button class="animated_button">
-                <p>&#8595;</p>
-                </button>
+                <a class="animated_button" href="">
+                    <p>&#8595;</p>
+                </a>
                 <div class="vector_left"></div>
             </div>
             <div class="main_section">
@@ -20,8 +20,15 @@
             <div class="header_contacts">
                 <span>JosyKrueger2&#64;web.de</span>
                 <div class="margin">
-                    <a href=""><img src="assets/img/github-icon-green.png" alt=""></a>
-                    <a href=""><img src="assets/img/linkedin-icon-green.png" alt=""></a>
+                    <a href="">
+                        <img [src]="githubImageSrc" (mouseover)="githubImageSrc='assets/img/github-icon-white.png'"
+                            (mouseout)="githubImageSrc='assets/img/github-icon-green.png'" alt="">
+                    </a>
+                    <a href="">
+                        <img [src]="linkedinImageSrc"
+                            (mouseover)="linkedinImageSrc='assets/img/linkedin-icon-white.png'"
+                            (mouseout)="linkedinImageSrc='assets/img/linkedin-icon-green.png'" alt="">
+                    </a>
                     <div class="vector_right"></div>
                 </div>
             </div>

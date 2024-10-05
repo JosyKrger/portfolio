@@ -2,8 +2,7 @@
     <nav>
         <div class="links">
             <img [src]="imageSrc" (mouseover)="imageSrc='assets/img/english-hover.png'"
-                (mouseout)="imageSrc='assets/img/english.png'" alt="English">
-            <img class="d_none" src="../../../assets/img/german.png" alt="">
+                (mouseout)="imageSrc='assets/img/english.png'" (click)="translateWebsite()" alt="English">
             <a href="">About me</a>
             <a href="">Skills</a>
             <a href="">Projects</a>

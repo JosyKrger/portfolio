@@ -10,4 +10,7 @@ import { HeaderComponent } from "../../shared/header/header.component";
 })
 export class WelcomeComponent {
 
+  githubImageSrc: string = 'assets/img/github-icon-green.png';
+  linkedinImageSrc: string = 'assets/img/linkedin-icon-green.png';
+
 }

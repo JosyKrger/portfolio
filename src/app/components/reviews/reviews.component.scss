@@ -129,3 +129,35 @@ section {
         background-color: #FFFFFF;
     }
 }
+
+.prev {
+    .button {
+        position: relative; /* Positionierung für das Bild */
+        border: none; /* Keine standardmäßigen Ränder */
+        background: transparent; /* Transparenter Hintergrund */
+        cursor: pointer; /* Zeigt den Cursor als Hand */
+        
+        img {
+            transition: opacity 0.3s ease; /* Übergangseffekt für die Opazität */
+        }
+    
+        /* Standardbild */
+        &::before {
+            content: ''; /* Erforderlich für Pseudo-Elemente */
+            background-image: url('/assets/img/arrow-back-white.png'); /* Standardbild */
+            background-size: contain; /* Bild anpassen */
+            background-repeat: no-repeat; /* Keine Wiederholung */
+            position: absolute; /* Absolute Positionierung */
+            top: 0;
+            left: 0;
+            width: 100%; /* Breite des Buttons */
+            height: 100%; /* Höhe des Buttons */
+            z-index: 1; /* Hinter dem Bild */
+        }
+    
+        /* Hover-Effekt */
+        &:hover::before {
+            background-image: url('/assets/img/arrow-back-green.png'); /* Bild beim Hover */
+        }
+    }
+}

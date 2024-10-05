@@ -10,6 +10,9 @@ import { Component } from '@angular/core';
 })
 export class ReviewsComponent {
 
+  arrowBackImageSrc: string = 'assets/img/arrow-back-white.png';
+  arrowForwardImageSrc: string = 'assets/img/arrow-forward-white.png';
+
   reviews = [
     {
       quote: "Working with Lukas in a group project was great. He is very cool, focused, and made our project a success. He's super collaborative, and I'd happily work with him again.",
