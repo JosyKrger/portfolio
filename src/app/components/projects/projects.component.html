@@ -1,11 +1,22 @@
 <section>
     <div class="section_content">
+        <div id="dialog" class="dialog_bg d_none" onclick="closeDialog()">
+            <div class="dialog">
+                <div class="project_details">
+                    <h1>Dialog</h1>
+                    <p id="dialog_message">Informationen</p>
+                </div>
+                <div class="project_image">
+
+                </div>
+            </div>
+        </div>
         <div class="about_projects">
             <h4>Portfolio</h4>
             <div class="info_container">
-                <h1>Featured Projects</h1>
+                <h1>{{ 'featured_projects' | translate }}</h1>
                 <div class="info_content">
-                    <p>Explore a selection of my work here - Interact with <br> projects to see my skills in action.</p>
+                    <p>{{ 'explore_projects' | translate }}</p>
                     <div class="content_sector join_sector" (mouseover)="showJoinProject = true"
                         (mouseout)="showJoinProject = false">
                         <div class="second_headline">
@@ -54,4 +65,3 @@
         </div>
     </div>
 </section>
-

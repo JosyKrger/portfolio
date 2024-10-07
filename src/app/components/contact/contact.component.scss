@@ -12,6 +12,11 @@ section {
     }
 }
 
+.error_message {
+    margin-top: 10px;
+    color: #EC7B7BCC;
+}
+
 .about_contact {
     margin-top: 10px;
     text-align: justify;
@@ -77,7 +82,7 @@ span {
         width: 700px;
         font-family: 'Karla', sans-serif;
         font-weight: 400;
-        font-size: 22px;
+        font-size: 18px;
         color: white;
         height: 24px;
         outline: none;
@@ -85,6 +90,25 @@ span {
         :focus {
             color: white;
         }
+    }
+
+    ::placeholder {
+        color: #a0a0a0;
+        opacity: 1;
+    }
+
+    .error-placeholder::placeholder {
+        color: #EC7B7BCC;
+        letter-spacing: 0.5px;
+    }
+
+    .error-text {
+        font-family: 'Karla', sans-serif;
+        font-weight: 400;
+        font-size: 13px;
+        color: #EC7B7BCC;
+        letter-spacing: 0.5px;
+        text-align: start;
     }
 }
 

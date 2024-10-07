@@ -3,9 +3,9 @@
         <div class="links">
             <img [src]="imageSrc" (mouseover)="imageSrc='assets/img/english-hover.png'"
                 (mouseout)="imageSrc='assets/img/english.png'" (click)="translateWebsite()" alt="English">
-            <a href="">About me</a>
-            <a href="">Skills</a>
-            <a href="">Projects</a>
+            <a href="">{{ 'about_me' | translate }}</a>
+            <a href="">{{ 'skills' | translate }}</a>
+            <a href="">{{ 'projects' | translate }}</a>
         </div>
         <div class="logo">
             <div class="abbreviation">
