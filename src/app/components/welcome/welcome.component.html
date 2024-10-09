@@ -13,13 +13,17 @@
                     <h1>Josy Krüger</h1>
                 </div>
                 <div class="btn_section">
-                    <button>{{ 'my_work' | translate }}</button>
-                    <button>{{ 'contact_me' | translate }}</button>
+                    <a href="">{{ 'my_work' | translate }}</a>
+                    <a href="">{{ 'contact_me' | translate }}</a>
                 </div>
             </div>
             <div class="header_contacts">
                 <span>JosyKrueger2&#64;web.de</span>
                 <div class="margin">
+                    <a class="mail_icon" href="">
+                        <img [src]="mailImageSrc" (mouseover)="mailImageSrc='assets/img/mail-icon-white.png'"
+                            (mouseout)="mailImageSrc='assets/img/mail-icon-green.png'" alt="">
+                    </a>
                     <a href="">
                         <img [src]="githubImageSrc" (mouseover)="githubImageSrc='assets/img/github-icon-white.png'"
                             (mouseout)="githubImageSrc='assets/img/github-icon-green.png'" alt="">
@@ -33,29 +37,29 @@
                 </div>
             </div>
         </div>
+        <div class="banner">
+            <div class="banner_content">
+                <div class="content-inner">
+                    <img src="assets/img/point-green.png" alt="">
+                    <p>{{ 'available_for_remote' | translate }}</p>
+                    <img src="assets/img/point-green.png" alt="">
+                    <p>{{ 'frontend_developer' | translate }}</p>
+                    <img src="assets/img/point-green.png" alt="">
+                    <p>{{ 'based_in' | translate }}</p>
+                    <img src="assets/img/point-green.png" alt="">
+                    <p>{{ 'open_to_work' | translate }}</p>
+                </div>
+                <div class="content-inner">
+                    <img src="assets/img/point-green.png" alt="">
+                    <p>{{ 'available_for_remote' | translate }}</p>
+                    <img src="assets/img/point-green.png" alt="">
+                    <p>{{ 'frontend_developer' | translate }}</p>
+                    <img src="assets/img/point-green.png" alt="">
+                    <p>{{ 'based_in' | translate }}</p>
+                    <img src="assets/img/point-green.png" alt="">
+                    <p>{{ 'open_to_work' | translate }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-<div class="banner">
-    <div class="banner_content">
-        <div class="content-inner">
-            <img src="assets/img/point-green.png" alt="">
-            <p>{{ 'available_for_remote' | translate }}</p>
-            <img src="assets/img/point-green.png" alt="">
-            <p>{{ 'frontend_developer' | translate }}</p>
-            <img src="assets/img/point-green.png" alt="">
-            <p>{{ 'based_in' | translate }}</p>
-            <img src="assets/img/point-green.png" alt="">
-            <p>{{ 'open_to_work' | translate }}</p>
-        </div>
-        <div class="content-inner">
-            <img src="assets/img/point-green.png" alt="">
-            <p>{{ 'available_for_remote' | translate }}</p>
-            <img src="assets/img/point-green.png" alt="">
-            <p>{{ 'frontend_developer' | translate }}</p>
-            <img src="assets/img/point-green.png" alt="">
-            <p>{{ 'based_in' | translate }}</p>
-            <img src="assets/img/point-green.png" alt="">
-            <p>{{ 'open_to_work' | translate }}</p>
-        </div>
-    </div>
-</div>

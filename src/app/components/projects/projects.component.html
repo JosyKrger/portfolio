@@ -1,13 +1,32 @@
 <section>
     <div class="section_content">
-        <div id="dialog" class="dialog_bg d_none" onclick="closeDialog()">
+        <div id="dialog" class="dialog_bg" *ngIf="isDialogOpen">
             <div class="dialog">
                 <div class="project_details">
-                    <h1>Dialog</h1>
-                    <p id="dialog_message">Informationen</p>
+                    <h1>{{ getFormattedNumber(selectedProject.number) }}</h1>
+                    <h2>{{ selectedProject.title }}</h2>
+                    <h3>What is this project about?</h3>
+                    <p>{{ selectedProject.description }}</p>
+                    <div class="project_details_technologies">
+                        <div class="single_technology" *ngFor="let tech of selectedProject.technologies">
+                            <img [src]="tech.icon" alt="{{ tech.name }} icon">
+                            <span>{{ tech.name }}</span>
+                        </div>
+                    </div>
+                    <div class="project_details_btn_section">
+                        <a href="">Github</a>
+                        <a href="">Live Test</a>
+                    </div>
+
                 </div>
                 <div class="project_image">
-
+                    <img (click)="closeDialog()" class="close_dialog" [src]="closeDialogImageSrc"
+                        (mouseover)="onHoverCloseDialog(true)" (mouseout)="onHoverCloseDialog(false)"
+                        alt="Close Dialog">
+                    <img src="{{ selectedProject.imageSrc }}" alt="">
+                    <div (click)="showNextProject()" class="next_project">
+                        <span>next project<img src="../../../assets/img/arrow-forward-green.png" alt=""></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -18,7 +37,7 @@
                 <div class="info_content">
                     <p>{{ 'explore_projects' | translate }}</p>
                     <div class="content_sector join_sector" (mouseover)="showJoinProject = true"
-                        (mouseout)="showJoinProject = false">
+                        (mouseout)="showJoinProject = false" (click)="openDialog(0)">
                         <div class="second_headline">
                             <h2>Join</h2>
                         </div>
@@ -27,7 +46,7 @@
                         </div>
                     </div>
                     <div class="content_sector el_pollo_loco_sector" (mouseover)="showElPolloLocoProject = true"
-                        (mouseout)="showElPolloLocoProject = false">
+                        (mouseout)="showElPolloLocoProject = false" (click)="openDialog(1)">
                         <div class="second_headline">
                             <h2>El Pollo Loco</h2>
                         </div>
@@ -36,7 +55,7 @@
                         </div>
                     </div>
                     <div class="content_sector da_bubble_sector" (mouseover)="showDaBubbleProject = true"
-                        (mouseout)="showDaBubbleProject = false">
+                        (mouseout)="showDaBubbleProject = false" (click)="openDialog(2)">
                         <div class="second_headline">
                             <h2>DA Bubble</h2>
                         </div>

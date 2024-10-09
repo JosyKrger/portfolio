@@ -1,8 +1,8 @@
 <section>
     <nav>
         <div class="links">
-            <img [src]="imageSrc" (mouseover)="imageSrc='assets/img/english-hover.png'"
-                (mouseout)="imageSrc='assets/img/english.png'" (click)="translateWebsite()" alt="English">
+            <img [src]="imageSrc" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" (click)="translateWebsite()"
+                alt="Language Toggle">
             <a href="">{{ 'about_me' | translate }}</a>
             <a href="">{{ 'skills' | translate }}</a>
             <a href="">{{ 'projects' | translate }}</a>
@@ -15,6 +15,21 @@
             </div>
             <div class="name">
                 <h3 class="lastname">Krüger</h3>
+            </div>
+        </div>
+        <div class="mobile_menu" (click)="toggleMenu()">
+            <img src="../../../assets/img/menu-icon-white.png" alt="menu icon" class="menu-icon">
+        </div>
+        <div class="open_menu" *ngIf="isMenuOpen">
+            <div class="mobile_links">
+                <a href="">{{ 'about_me' | translate }}</a>
+                <a href="">{{ 'skills' | translate }}</a>
+                <a href="">{{ 'projects' | translate }}</a>
+                <img [src]="imageSrc" 
+                     (mouseover)="onMouseOver()" 
+                     (mouseout)="onMouseOut()" 
+                     (click)="translateWebsite()"
+                     alt="Language Toggle">
             </div>
         </div>
     </nav>

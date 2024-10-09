@@ -8,6 +8,7 @@ section {
 
     .section_content {
         @include dFlex($jc: space-between, $ai: flex-end);
+        position: relative;
     }
 
     .welcome_content {
@@ -23,6 +24,14 @@ section {
     align-items: center;
     flex-direction: column;
     margin-top: 340px;
+
+    @media(max-width: 1110px) {
+        margin-top: 348px;
+    }
+
+    @media(max-width: 880px) {
+        margin-top: 372px;
+    }
 
     .vector_left {
         margin-top: 20px;
@@ -42,6 +51,11 @@ section {
         border-radius: 25px;
         text-decoration: none;
         color: #FFFFFF;
+
+        @media(max-width: 880px) {
+            height: 40px;
+            width: 20px;
+        }
     }
 
     p {
@@ -55,15 +69,15 @@ section {
 
 @keyframes float {
     0% {
-        transform: translateY(10px);
+        transform: translateY(7px);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-7px);
     }
 
     100% {
-        transform: translateY(10px);
+        transform: translateY(7px);
     }
 }
 
@@ -78,6 +92,18 @@ section {
         font-family: 'Karla', sans-serif;
         font-weight: 700;
         color: #D9D9D9;
+
+        @media(max-width: 1110px) {
+            font-size: 120px;
+        }
+
+        @media(max-width: 880px) {
+            font-size: 90px;
+        }
+
+        @media(max-width: 605px) {
+            font-size: 60px;
+        }
     }
 
     h3 {
@@ -88,11 +114,37 @@ section {
         font-family: 'Fira Code', sans-serif;
         font-weight: 400;
         color: #D9D9D9;
+
+        @media(max-width: 1110px) {
+            font-size: 35px;
+        }
+
+        @media(max-width: 880px) {
+            font-size: 25px;
+        }
+
+        @media(max-width: 605px) {
+            font-size: 20px;
+        }
     }
 
     .btn_section {
         margin-top: 50px;
-        @include btnStyling();
+        @include aStyling();
+
+        @media(max-width: 605px) {
+            margin-top: 30px;
+        }
+
+        a {
+            margin-left: 24px;
+            margin-right: 24px;
+
+            @media(max-width: 605px) {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+        }
     }
 }
 
@@ -109,6 +161,14 @@ section {
         font-family: 'Karla', sans-serif;
         color: #FFFFFF;
 
+        @media(max-width: 1110px) {
+            font-size: 16px;
+        }
+
+        @media(max-width: 880px) {
+            display: none;
+        }
+
         &:hover {
             color: #3DCFB6;
             cursor: default;
@@ -119,6 +179,14 @@ section {
         margin-top: 90px;
         display: grid;
         justify-items: center;
+
+        .mail_icon {
+            display: none;
+
+            @media(max-width: 880px) {
+                display: flex;
+            }
+        }
 
         a {
             text-decoration: none;
@@ -133,6 +201,11 @@ section {
                 width: 32px;
                 margin-bottom: 10px;
                 vertical-align: middle;
+
+                @media(max-width: 605px) {
+                    height: 28px;
+                    width: 28px;
+                }
             }
 
             &::after {
@@ -157,7 +230,7 @@ section {
             margin-top: 10px;
             background-color: #FFFFFF;
             width: 0.5px;
-            height: 140px;
+            height: 145px;
         }
     }
 }
@@ -165,12 +238,23 @@ section {
 .banner {
     @include dFlex($jc: flex-start);
     background-color: rgba(0, 0, 0, 0.2);
-    margin-top: -110px;
     rotate: -3deg;
     height: 62px;
+    -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
-    width: 100vw;
     overflow: hidden;
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+    right: 0;
+
+    @media (max-width: 1110px) {
+        height: 50px;
+    }
+
+    @media (max-width: 880px) {
+        height: 40px;
+    }
 
     .banner_content {
         display: flex;
@@ -199,6 +283,14 @@ section {
             font-size: 30px;
             color: #3DCFB6;
             margin: 0 55px;
+
+            @media(max-width: 1110px) {
+                font-size: 25px;
+            }
+
+            @media(max-width: 880px) {
+                font-size: 20px;
+            }
         }
 
         img {

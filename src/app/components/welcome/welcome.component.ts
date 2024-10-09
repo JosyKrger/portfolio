@@ -16,5 +16,6 @@ export class WelcomeComponent {
 
   githubImageSrc: string = 'assets/img/github-icon-green.png';
   linkedinImageSrc: string = 'assets/img/linkedin-icon-green.png';
+  mailImageSrc: string = 'assets/img/mail-icon-green.png';
 
 }

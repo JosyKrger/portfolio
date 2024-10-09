@@ -5,10 +5,18 @@ section {
     background-color: #1C1C1C;
     align-content: center;
 
+    @media(max-width: 1110px) {
+        height: auto;
+    }
+
     .section_content {
         max-width: 1260px;
         @include formattingContent($jc: space-between);
         @include contentPadding();
+
+        @media(max-width: 1110px) {
+            height: auto;
+        }
     }
 
     p {
@@ -19,17 +27,29 @@ section {
         letter-spacing: 1px;
         margin-bottom: 30px;
         margin-top: 25px;
+
+        @media(max-width: 605px) {
+            font-size: 14px;
+        }
     }
 }
 
 h1 {
     color: #3DCFB6;
-    font-size: 64px;
+    font-size: 60px;
     margin: 0;
     text-align: left;
     font-family: 'Fira Code', sans-serif;
     font-weight: 700;
     text-wrap: nowrap;
+
+    @media(max-width: 1110px) {
+        font-size: 50px;
+    }
+
+    @media(max-width: 605px) {
+        text-wrap: balance;
+    }
 }
 
 .info_content {
@@ -37,7 +57,16 @@ h1 {
 }
 
 .about_projects {
-    width: 60%;
+    width: 50%;
+
+    @media (max-width: 1110px) {
+        width: 90%;
+    }
+
+    @media(max-width: 880px) {
+        width: 100%;
+        margin-top: 80px;
+    }
 
     .content_sector {
         width: 100%;
@@ -47,6 +76,14 @@ h1 {
         border-bottom: 1px solid #3DCFB6;
         transition: background-color 0.5s ease;
         @include dFlex($jc: space-between);
+
+        @media(max-width: 880px) {
+            width: 90%;
+        }
+
+        @media(max-width: 605px) {
+            width: 85%;
+        }
 
         &:hover {
             cursor: pointer;
@@ -63,6 +100,14 @@ h1 {
             font-weight: 700;
             font-size: 32px;
             color: #FFFFFF;
+
+            @media (max-width: 1110px) {
+                font-size: 30px;
+            }
+
+            @media(max-width: 605px) {
+                font-size: 20px;
+            }
         }
 
         span {
@@ -70,12 +115,20 @@ h1 {
             font-weight: 400;
             font-size: 18px;
             color: #3DCFB6;
+
+            @media (max-width: 1110px) {
+                font-size: 16px;
+            }
         }
     }
 }
 
 .projects_preview {
     margin-top: 335px;
+
+    @media (max-width: 1110px) {
+        display: none;
+    }
 
     .single_project {
 
@@ -124,10 +177,127 @@ h1 {
         background-image: url("/assets/img/landingpage-background.png");
         background-repeat: no-repeat;
         background-size: cover;
-        height: 75vh;
-        width: 80vw;
-        border: 1 px solid lightgray;
+        height: 75%;
+        width: 80%;
+        border: 1px solid #3DCFB6;
         border-radius: 35px;
         padding: 50px;
+        display: flex;
+
+        .project_details {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h1 {
+                font-family: 'Karla', sans-serif;
+                font-weight: 700;
+                font-size: 128px;
+                color: #3DCFB6;
+            }
+
+            h2 {
+                font-family: 'Fira Code', sans-serif;
+                font-weight: 700;
+                font-size: 64px;
+                color: #FFFFFF;
+                text-align: start;
+                margin: 0;
+            }
+
+            h3 {
+                font-family: 'Fira Code', sans-serif;
+                font-weight: 400;
+                font-size: 24px;
+                color: #FFFFFF;
+                text-align: start;
+                margin: 10px 0;
+            }
+
+            p {
+                font-family: 'Karla', sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                color: #3DCFB6;
+                text-align: start;
+            }
+        }
+
+        .project_details_technologies {
+            width: 100%;
+            display: flex;
+            color: #FFFFFF;
+            margin-top: 10px;
+            font-family: 'Karla', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        .single_technology {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-right: 20px;
+        }
+
+        .project_details_btn_section {
+            @include aStyling();
+            display: flex;
+            gap: 50px;
+            margin-top: 40px;
+
+            a {
+                margin: 0;
+            }
+        }
+    }
+
+    .project_image {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+
+        img {
+            height: 60%;
+            width: 85%;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        .close_dialog {
+            width: 45px;
+            height: 45px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .next_project {
+        font-family: 'Karla', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        color: #3DCFB6;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        span {
+            gap: 10px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }

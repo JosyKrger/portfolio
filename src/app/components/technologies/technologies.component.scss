@@ -7,17 +7,34 @@ section {
     background-repeat: no-repeat;
     background-size: contain;
 
+    @media(max-width: 1110px) {
+        height: auto;
+    }
+
     .section_content {
         max-width: 1260px;
         @include formattingContent($jc: space-between);
         @include contentPadding();
+
+        @media (max-width: 1110px) {
+            height: auto;
+        }
+
+        @media(max-width: 880px) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
 
-.about_skills{
+.about_skills {
     width: 45%;
     margin-top: 80px;
     @include btnStyling();
+
+    @media(max-width: 880px) {
+        width: 100%;
+    }
 
     h4 {
         margin-top: 0;
@@ -36,12 +53,18 @@ section {
         }
 
         .btn_section {
+            @include aStyling();
             margin-top: 50px;
+            margin-bottom: 20px;
             text-align: start;
 
             button {
                 margin: 0;
             }
+        }
+
+        .second_headline {
+            white-space: nowrap;
         }
     }
 }
@@ -49,6 +72,11 @@ section {
 .skill_icon_section {
     width: 45%;
     display: flex;
+
+    @media(max-width: 880px) {
+        width: 100%;
+        max-width: 590px;
+    }
 
     .skill_icon_content {
         display: flex;
@@ -58,15 +86,49 @@ section {
         align-content: baseline;
         gap: 55px;
 
+        @media(max-width: 1110px) {
+            gap: 50px;
+        }
+
+        @media(max-width: 880px) {
+            margin-top: 50px;
+            gap: 90px;
+            width: 100%;
+        }
+
+        @media(max-width: 605px) {
+            gap: 82px;
+        }
+
         .single_icon {
             height: 100px;
             width: 100px;
+
+            @media(max-width: 1110px) {
+                height: 80px;
+                width: 80px;
+            }
 
             img {
                 width: 60px;
                 height: 60px;
                 transition: transform 0.3s;
-    
+
+                @media(max-width: 1110px) {
+                    height: 50px;
+                    width: 50px;
+                }
+
+                @media(max-width: 880px) {
+                    height: 60px;
+                    width: 60px;
+                }
+
+                @media(max-width: 605px) {
+                    height: 50px;
+                    width: 50px;
+                }
+
                 &:hover {
                     transform: scale(1.1);
                 }
@@ -77,6 +139,18 @@ section {
                 margin-top: 8px;
                 font-size: 18px;
                 font-family: 'Fira Code', sans-serif;
+
+                @media(max-width: 1110px) {
+                    font-size: 14px;
+                }
+
+                @media(max-width: 880px) {
+                    font-size: 16px;
+                }
+
+                @media(max-width: 605px) {
+                    font-size: 14px;
+                }
             }
         }
     }

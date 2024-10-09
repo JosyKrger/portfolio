@@ -5,10 +5,17 @@ section {
     background-color: #1C1C1C;
     height: 70vh;
 
+    @media(max-width: 1110px) {
+        height: auto;
+    }
+
     .section_content {
         height: 70vh;
-        max-width: 1260px;
-        @include contentPadding();
+        max-width: 1440px;
+
+        @media(max-width: 1110px) {
+            height: auto;
+        }
     }
 
     .headline {
@@ -20,6 +27,15 @@ section {
             font-size: 32px;
             color: #3DCFB6;
             margin-top: -50px;
+
+            @media(max-width: 880px) {
+                font-size: 28px;
+            }
+
+            @media(max-width: 605px) {
+                font-size: 24px;
+                padding: 0 10px;
+            }
         }
     }
 }
@@ -33,15 +49,59 @@ section {
     height: 310px;
     margin: 0;
     overflow: hidden;
+    z-index: 0;
+
+    @media (max-width: 1110px) {
+        height: 260px;
+    }
+}
+
+
+.carousel::before,
+.carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+    z-index: 5;
+    pointer-events: none;
+
+    @media(max-width: 605px) {
+        width: 80px;
+    }
+}
+
+.carousel::before {
+    left: -110px;
+    box-shadow: 20px 0 30px 30px rgba(28, 28, 28, 1);
+
+    @media (max-width: 1110px) {
+        left: -90px;
+    }
+}
+
+.carousel::after {
+    right: -110px;
+    box-shadow: -20px 0 30px 30px rgba(28, 28, 28, 1);
+
+    @media (max-width: 1110px) {
+        right: -90px;
+    }
 }
 
 .review_container {
-    display: flex;
-    justify-content: center;
+    @include dFlex();
+    height: -webkit-fill-available;
     transition: transform 0.5s ease;
-    width: 100%; 
+    width: 100%;
     position: relative;
     margin: auto;
+    z-index: 0;
+}
+
+.ng-container {
+    z-index: 0;
 }
 
 .review {
@@ -60,54 +120,100 @@ section {
     text-align: center;
     transition: opacity 0.75s ease, transform 0.75s ease;
     transform: translateX(0);
-    position: absolute; 
-    top: 50%;
+    position: absolute;
     transform: translateY(-50%);
     font-family: 'Karla', sans-serif;
     word-spacing: 1px;
+    z-index: 0;
+
+    @media (max-width: 1110px) {
+        width: 400px;
+        height: 120px;
+        padding: 20px;
+    }
+
+    @media(max-width: 880px) {
+        max-width: 300px;
+        padding: 15px;
+    }
+
+    @media(max-width: 605px) {
+        max-width: 250px;
+    }
 
     p {
         text-align: justify;
         font-size: 18px;
         margin: 0;
+
+        @media (max-width: 1110px) {
+            font-size: 14px;
+        }
+
+        @media (max-width: 880px) {
+            font-size: 12px;
+        }
     }
 
     span {
         text-align: end;
         font-size: 16px;
+
+        @media (max-width: 1110px) {
+            font-size: 12px;
+        }
+
+        @media (max-width: 880px) {
+            font-size: 10px;
+        }
     }
 }
 
 .active {
     opacity: 1;
     background-color: #26524B;
-    transform: translateX(0) scale(1.25); /* Die mittlere Review bleibt zentriert und wird leicht skaliert */
-    z-index: 1; 
+    transform: translateX(0) scale(1.25);
+    z-index: 0;
 }
 
 .prev-review {
-    transform: translateX(-120%); /* Die vorherige Review wird nach links geschoben */
+    transform: translateX(-120%);
+    z-index: 0;
 }
 
 .next-review {
-    transform: translateX(120%); /* Die nächste Review wird nach rechts geschoben */
+    transform: translateX(120%);
+    z-index: 0;
 }
 
 .carousel-controls {
-    display: flex;
-    align-items: center;
-    margin-top: 100px;
+    @include dFlex();
+    width: 100%;
+    position: absolute;
+    z-index: 10;
 
-    .prev, .next {
+    @media (max-width: 1110px) {
+        margin-top: -30px;
+    }
+
+    .prev,
+    .next {
         background-color: transparent;
         color: #3DCFB6;
         border: none;
         font-size: 2rem;
         cursor: pointer;
         margin: 0 20px;
+
+        img {
+            @media (max-width: 1110px) {
+                height: 18px;
+            }
+        }
     }
 
-    .prev:hover, .next:hover {
+    .prev:hover,
+    .next:hover {
         color: #FFFFFF;
     }
 }
@@ -123,6 +229,16 @@ section {
         background-color: #3DCFB6;
         border-radius: 50%;
         transition: background-color 0.3s ease;
+
+        @media (max-width: 1110px) {
+            width: 8px;
+            height: 8px;
+        }
+
+        @media (max-width: 880px) {
+            width: 6px;
+            height: 6px;
+        }
     }
 
     .active {
@@ -132,32 +248,30 @@ section {
 
 .prev {
     .button {
-        position: relative; /* Positionierung für das Bild */
-        border: none; /* Keine standardmäßigen Ränder */
-        background: transparent; /* Transparenter Hintergrund */
-        cursor: pointer; /* Zeigt den Cursor als Hand */
-        
+        position: relative;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+
         img {
-            transition: opacity 0.3s ease; /* Übergangseffekt für die Opazität */
+            transition: opacity 0.3s ease;
         }
-    
-        /* Standardbild */
+
         &::before {
-            content: ''; /* Erforderlich für Pseudo-Elemente */
-            background-image: url('/assets/img/arrow-back-white.png'); /* Standardbild */
-            background-size: contain; /* Bild anpassen */
-            background-repeat: no-repeat; /* Keine Wiederholung */
-            position: absolute; /* Absolute Positionierung */
+            content: '';
+            background-image: url('/assets/img/arrow-back-white.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100%; /* Breite des Buttons */
-            height: 100%; /* Höhe des Buttons */
-            z-index: 1; /* Hinter dem Bild */
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
-    
-        /* Hover-Effekt */
+
         &:hover::before {
-            background-image: url('/assets/img/arrow-back-green.png'); /* Bild beim Hover */
+            background-image: url('/assets/img/arrow-back-green.png');
         }
     }
 }

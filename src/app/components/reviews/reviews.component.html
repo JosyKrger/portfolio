@@ -4,25 +4,27 @@
             <h1>What my colleagues say about me</h1>
         </div>
         <div class="carousel">
-            <div class="review_container">
-                <ng-container *ngFor="let review of reviews; let i = index">
-                    <div class="review" [class.active]="i === currentIndex">
-                        <p>{{ review.quote }}</p>
-                        <span>{{ review.author }}</span>
-                    </div>
-                </ng-container>
-            </div>
-            <div class="carousel-controls">
-                <button class="prev" (click)="prevReview()"><img [src]="arrowBackImageSrc"
-                        (mouseover)="arrowBackImageSrc='assets/img/arrow-back-green.png'"
-                        (mouseout)="arrowBackImageSrc='assets/img/arrow-back-white.png'" alt=""></button>
-                <div class="carousel-indicators">
-                    <span *ngFor="let review of reviews; let i = index" [class.active]="i === currentIndex"></span>
+            <!-- <div class="carousel_background"> -->
+                <div class="review_container">
+                    <ng-container *ngFor="let review of reviews; let i = index">
+                        <div class="review" [class.active]="i === currentIndex">
+                            <p>{{ review.quote }}</p>
+                            <span>{{ review.author }}</span>
+                        </div>
+                    </ng-container>
                 </div>
-                <button class="next" (click)="nextReview()"><img [src]="arrowForwardImageSrc"
-                        (mouseover)="arrowForwardImageSrc='assets/img/arrow-forward-green.png'"
-                        (mouseout)="arrowForwardImageSrc='assets/img/arrow-forward-white.png'" alt=""></button>
+            <!-- </div> -->
+        </div>
+        <div class="carousel-controls">
+            <button class="prev" (click)="prevReview()"><img [src]="arrowBackImageSrc"
+                    (mouseover)="arrowBackImageSrc='assets/img/arrow-back-green.png'"
+                    (mouseout)="arrowBackImageSrc='assets/img/arrow-back-white.png'" alt=""></button>
+            <div class="carousel-indicators">
+                <span *ngFor="let review of reviews; let i = index" [class.active]="i === currentIndex"></span>
             </div>
+            <button class="next" (click)="nextReview()"><img [src]="arrowForwardImageSrc"
+                    (mouseover)="arrowForwardImageSrc='assets/img/arrow-forward-green.png'"
+                    (mouseout)="arrowForwardImageSrc='assets/img/arrow-forward-white.png'" alt=""></button>
         </div>
     </div>
 </section>

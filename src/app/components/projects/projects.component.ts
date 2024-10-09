@@ -17,6 +17,7 @@ export class ProjectsComponent {
   showJoinProject: boolean = false;
   showElPolloLocoProject: boolean = false;
   showDaBubbleProject: boolean = false;
+  closeDialogImageSrc: string = '/assets/img/close-dialog.png';
 
   projectDetails = [
     {
@@ -42,7 +43,8 @@ export class ProjectsComponent {
         }
       ],
       githubLink: "",
-      livetestLink: ""
+      livetestLink: "",
+      imageSrc: "assets/img/join-preview.png"
     },
     {
       number: 2,
@@ -63,7 +65,8 @@ export class ProjectsComponent {
         }
       ],
       githubLink: "",
-      livetestLink: ""
+      livetestLink: "",
+      imageSrc: "assets/img/el-pollo-loco-preview.png"
     },
     {
       number: 3,
@@ -92,8 +95,45 @@ export class ProjectsComponent {
         }
       ],
       githubLink: "",
-      livetestLink: ""
+      livetestLink: "",
+      imageSrc: "assets/img/el-pollo-loco-preview.png"
     }
   ];
+
+  isDialogOpen = false;
+  selectedProject: any = null;
+
+
+  getFormattedNumber(num: number): string {
+    return num < 10 ? '0' + num : num.toString();
+  }
+
+
+  openDialog(index: number) {
+    this.selectedProject = this.projectDetails[index];
+    this.isDialogOpen = true;
+  }
+
+ 
+  onHoverCloseDialog(isHovering: boolean): void {
+    if (isHovering) {
+      this.closeDialogImageSrc = '/assets/img/close-dialog-hover.png';
+    } else {
+      this.closeDialogImageSrc = '/assets/img/close-dialog.png';
+    }
+  }
+
+
+  closeDialog() {
+    this.isDialogOpen = false;
+    this.closeDialogImageSrc = '/assets/img/close-dialog.png';
+  }
+
+
+  showNextProject() {
+    const currentIndex = this.projectDetails.indexOf(this.selectedProject);
+    const nextIndex = (currentIndex + 1) % this.projectDetails.length // zyklischer Wechsel zwischen den Projekten
+    this.selectedProject = this.projectDetails[nextIndex];
+  }
 }
 

@@ -7,7 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-header',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     TranslateModule
   ],
   templateUrl: './header.component.html',
@@ -16,18 +16,39 @@ import { TranslateModule } from '@ngx-translate/core';
 export class HeaderComponent {
 
   imageSrc: string = 'assets/img/english.png';
-  isGerman: boolean = false; // Zustandsvariable für die Sprache
+  isGerman: boolean = false;
+  isMenuOpen: boolean = false; 
 
-  // Füge den TranslateService in den Konstruktor ein
-  constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang('en'); // Standardmäßig Englisch setzen
+ 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen; 
   }
 
-  // Methode zum Wechseln der Sprache und des Bildes
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+  }
+
+
   translateWebsite() {
-    this.isGerman = !this.isGerman; // Toggle zwischen Deutsch und Englisch
-    this.imageSrc = this.isGerman ? 'assets/img/german.png' : 'assets/img/english.png'; // Bild wechseln
-    const newLang = this.isGerman ? 'de' : 'en'; // Sprache auf Deutsch oder Englisch setzen
-    this.translate.use(newLang); // Sprache mithilfe des TranslateService ändern
+    this.isGerman = !this.isGerman; 
+    let newLang = this.isGerman ? 'de' : 'en'; 
+    this.translate.use(newLang); 
+    this.updateImage(); 
+  }
+
+
+  updateImage() {
+    this.imageSrc = this.isGerman ? 'assets/img/german.png' : 'assets/img/english.png';
+  }
+
+
+  onMouseOver() {
+    this.imageSrc = this.isGerman ? 'assets/img/german-hover.png' : 'assets/img/english-hover.png';
+  }
+
+
+  onMouseOut() {
+    this.updateImage();
   }
 }
