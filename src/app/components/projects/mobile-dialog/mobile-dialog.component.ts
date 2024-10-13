@@ -1,34 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Project } from '../project.model';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { MobileDialogComponent } from "./mobile-dialog/mobile-dialog.component";
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Project } from './project.model';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-mobile-dialog',
   standalone: true,
-  imports: [
-    CommonModule,
-    TranslateModule,
-    MobileDialogComponent
-  ],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  imports: [CommonModule],
+  templateUrl: './mobile-dialog.component.html',
+  styleUrl: './mobile-dialog.component.scss'
 })
-export class ProjectsComponent implements OnInit {
+export class MobileDialogComponent {
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
-
-  showJoinProject: boolean = false;
-  showElPolloLocoProject: boolean = false;
-  showDaBubbleProject: boolean = false;
   closeDialogImageSrc: string = '/assets/img/close-dialog.png';
-  selectedProject: Project | null = null;
-  isDialogOpen: boolean = false;
+  isDialogOpen = false;
   isMobileView: boolean = false;
 
-  projectDetails: Project[] = [
+  projectDetails = [
     {
       number: 1,
       title: "Join",
@@ -110,22 +97,18 @@ export class ProjectsComponent implements OnInit {
   ];
 
 
-  openDialog(index: number) {
-    this.selectedProject = this.projectDetails[index];
-    this.isDialogOpen = true;
-}
-
-
-  ngOnInit(): void {
-    this.breakpointObserver.observe([Breakpoints.Handset, '(max-width: 1200px)'])
-      .subscribe((result: BreakpointState) => {
-        this.isMobileView = result.matches;
-      });
-  }
+  @Input() selectedProject: Project | null = null; 
+  @Output() dialogClose = new EventEmitter<void>(); 
 
 
   getFormattedNumber(num: number): string {
     return num < 10 ? '0' + num : num.toString();
+  }
+
+
+  openDialog(index: number) {
+    this.selectedProject = this.projectDetails[index];
+    this.isDialogOpen = true;
   }
 
 
@@ -139,17 +122,15 @@ export class ProjectsComponent implements OnInit {
 
 
   closeDialog() {
-    this.isDialogOpen = false;
-    this.selectedProject = null;
+    this.dialogClose.emit();
   }
 
 
   showNextProject() {
     if (this.selectedProject) {
-      let currentIndex = this.projectDetails.indexOf(this.selectedProject);
-      let nextIndex = (currentIndex + 1) % this.projectDetails.length;
+      const currentIndex = this.projectDetails.indexOf(this.selectedProject);
+      const nextIndex = (currentIndex + 1) % this.projectDetails.length;
       this.selectedProject = this.projectDetails[nextIndex];
     }
   }
 }
-

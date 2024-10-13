@@ -4,19 +4,14 @@
 section {
     background-color: #1C1C1C;
     align-content: center;
-
-    @media(max-width: 1110px) {
-        height: auto;
-    }
+    height: auto;
+    padding-top: 80px;
 
     .section_content {
+        height: auto;
         max-width: 1260px;
         @include formattingContent($jc: space-between);
         @include contentPadding();
-
-        @media(max-width: 1110px) {
-            height: auto;
-        }
     }
 
     p {
@@ -32,6 +27,10 @@ section {
             font-size: 14px;
         }
     }
+}
+
+.d_none {
+    display: none;
 }
 
 h1 {
@@ -85,6 +84,12 @@ h1 {
             width: 85%;
         }
 
+        @media(max-width: 465px) {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
         &:hover {
             cursor: pointer;
             background-color: #26524B;
@@ -108,6 +113,10 @@ h1 {
             @media(max-width: 605px) {
                 font-size: 20px;
             }
+
+            @media(max-width: 465px) {
+                margin: 0;
+            }
         }
 
         span {
@@ -118,6 +127,16 @@ h1 {
 
             @media (max-width: 1110px) {
                 font-size: 16px;
+            }
+
+            @media(max-width: 465px) {
+                font-size: 14px;
+            }
+        }
+
+        p {
+            @media(max-width: 465px) {
+                margin: 0;
             }
         }
     }
@@ -183,9 +202,10 @@ h1 {
         border-radius: 35px;
         padding: 50px;
         display: flex;
+        justify-content: space-between;
 
         .project_details {
-            width: 50%;
+            width: 35%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -193,23 +213,24 @@ h1 {
             h1 {
                 font-family: 'Karla', sans-serif;
                 font-weight: 700;
-                font-size: 128px;
+                font-size: 120px;
                 color: #3DCFB6;
             }
 
             h2 {
                 font-family: 'Fira Code', sans-serif;
                 font-weight: 700;
-                font-size: 64px;
+                font-size: 60px;
                 color: #FFFFFF;
                 text-align: start;
                 margin: 0;
+                text-wrap: nowrap;
             }
 
             h3 {
                 font-family: 'Fira Code', sans-serif;
                 font-weight: 400;
-                font-size: 24px;
+                font-size: 20px;
                 color: #FFFFFF;
                 text-align: start;
                 margin: 10px 0;
@@ -218,53 +239,64 @@ h1 {
             p {
                 font-family: 'Karla', sans-serif;
                 font-weight: 700;
-                font-size: 18px;
+                font-size: 16px;
                 color: #3DCFB6;
                 text-align: start;
             }
         }
+    }
 
-        .project_details_technologies {
-            width: 100%;
-            display: flex;
-            color: #FFFFFF;
-            margin-top: 10px;
-            font-family: 'Karla', sans-serif;
-            font-weight: 400;
-            font-size: 16px;
+    .project_details_technologies {
+        width: 100%;
+        display: flex;
+        color: #FFFFFF;
+        margin-top: 10px;
+        font-family: 'Karla', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        flex-wrap: wrap;
+
+        @media(max-width: 1200px) {
+            font-size: 15px;
+            margin: 0;
+        }
+    }
+
+    .single_technology {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-right: 20px;
+        margin-top: 10px
+    }
+
+    .project_details_btn_section {
+        @include aStyling();
+        display: flex;
+        gap: 50px;
+        margin-top: 40px;
+
+        @media(max-width:1200px) {
+            margin-top: 30px;
         }
 
-        .single_technology {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-right: 20px;
-        }
-
-        .project_details_btn_section {
-            @include aStyling();
-            display: flex;
-            gap: 50px;
-            margin-top: 40px;
-
-            a {
-                margin: 0;
-            }
+        a {
+            margin: 0;
+            text-wrap: nowrap;
         }
     }
 
     .project_image {
-        width: 50%;
+        width: 55%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: end;
 
         img {
-            height: 60%;
             width: 85%;
-            object-fit: cover;
-            border-radius: 25px;
+            object-fit: scale-down;
+            border-radius: 20px;   
         }
 
         .close_dialog {
@@ -276,28 +308,28 @@ h1 {
             }
         }
     }
+}
 
-    .next_project {
-        font-family: 'Karla', sans-serif;
-        font-weight: 400;
-        font-size: 18px;
-        color: #3DCFB6;
+.next_project {
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #3DCFB6;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    span {
+        gap: 10px;
         display: flex;
         align-items: center;
 
-        img {
-            width: 20px;
-            height: 20px;
-        }
-
-        span {
-            gap: 10px;
-            display: flex;
-            align-items: center;
-
-            &:hover {
-                cursor: pointer;
-            }
+        &:hover {
+            cursor: pointer;
         }
     }
 }

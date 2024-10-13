@@ -1,31 +1,38 @@
 <section>
     <div class="section_content">
-        <div id="dialog" class="dialog_bg" *ngIf="isDialogOpen">
-            <div class="dialog">
-                <div class="project_details">
-                    <h1>{{ getFormattedNumber(selectedProject.number) }}</h1>
-                    <h2>{{ selectedProject.title }}</h2>
-                    <h3>What is this project about?</h3>
-                    <p>{{ selectedProject.description }}</p>
-                    <div class="project_details_technologies">
-                        <div class="single_technology" *ngFor="let tech of selectedProject.technologies">
-                            <img [src]="tech.icon" alt="{{ tech.name }} icon">
-                            <span>{{ tech.name }}</span>
+        <div *ngIf="isMobileView && isDialogOpen">
+            <div id="dialogMobile" class="dialog_bg">
+                <app-mobile-dialog [selectedProject]="selectedProject" (dialogClose)="closeDialog()"></app-mobile-dialog>
+            </div>
+        </div>
+        <div *ngIf="!isMobileView && isDialogOpen">
+            <div id="dialog" class="dialog_bg d_none" *ngIf="isDialogOpen">
+                <div class="dialog">
+                    <div class="project_details">
+                        <h1>{{ getFormattedNumber(selectedProject?.number ?? 0) }}</h1>
+                        <h2>{{ selectedProject?.title }}</h2>
+                        <h3>What is this project about?</h3>
+                        <p>{{ selectedProject?.description }}</p>
+                        <div class="project_details_technologies">
+                            <div class="single_technology" *ngFor="let tech of selectedProject?.technologies">
+                                <img [src]="tech.icon" alt="{{ tech.name }} icon">
+                                <span>{{ tech.name }}</span>
+                            </div>
                         </div>
+                        <div class="project_details_btn_section">
+                            <a href="">Github</a>
+                            <a href="">Live Test</a>
+                        </div>
+    
                     </div>
-                    <div class="project_details_btn_section">
-                        <a href="">Github</a>
-                        <a href="">Live Test</a>
-                    </div>
-
-                </div>
-                <div class="project_image">
-                    <img (click)="closeDialog()" class="close_dialog" [src]="closeDialogImageSrc"
-                        (mouseover)="onHoverCloseDialog(true)" (mouseout)="onHoverCloseDialog(false)"
-                        alt="Close Dialog">
-                    <img src="{{ selectedProject.imageSrc }}" alt="">
-                    <div (click)="showNextProject()" class="next_project">
-                        <span>next project<img src="../../../assets/img/arrow-forward-green.png" alt=""></span>
+                    <div class="project_image">
+                        <img (click)="closeDialog()" class="close_dialog" [src]="closeDialogImageSrc"
+                            (mouseover)="onHoverCloseDialog(true)" (mouseout)="onHoverCloseDialog(false)"
+                            alt="Close Dialog">
+                        <img src="{{ selectedProject?.imageSrc }}" alt="">
+                        <div (click)="showNextProject()" class="next_project">
+                            <span>next project<img src="../../../assets/img/arrow-forward-green.png" alt=""></span>
+                        </div>
                     </div>
                 </div>
             </div>
