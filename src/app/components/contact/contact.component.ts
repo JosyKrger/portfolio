@@ -66,17 +66,23 @@ export class ContactComponent {
       this.checkboxError = true;
       return;
     }
-    if (ngForm.submitted && ngForm.form.valid) {
-      this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options) // Optionen hier hinzufügen
+    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
+      this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
-          next: (response: any) => {
-            if (response.status === 'success') {
-              ngForm.resetForm();
-              this.isCheckboxChecked = false;
-              this.checkboxImage = this.checkboxIsBlank;
-            }
-          }
+          next: (response) => {
+
+            ngForm.resetForm();
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => console.info('send post complete'),
         });
+    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+
+      ngForm.resetForm();
+      this.isCheckboxChecked = false;
+      this.checkboxImage = this.checkboxIsBlank;
     }
   }
 }
