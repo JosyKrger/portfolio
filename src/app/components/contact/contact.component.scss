@@ -21,6 +21,8 @@ section {
         @media (max-width: 880px) {
             flex-direction: column;
         }
+
+
     }
 }
 
@@ -44,6 +46,10 @@ section {
         background-color: transparent;
         border: none;
         padding: 0;
+
+        @media(max-width: 465px) {
+            padding: 0;
+        }
 
         .content_sector {
             margin-top: 0;
@@ -98,6 +104,10 @@ span {
         border-bottom: 1px solid #3DCFB6;
         margin: 0;
         text-align: start;
+
+        @media(max-width: 465px) {
+            padding: 20px;
+        }
     }
 
     h2 {
@@ -109,7 +119,7 @@ span {
     input {
         background-color: transparent;
         border: none;
-        width: 700px;
+        width: 100%;
         font-family: 'Karla', sans-serif;
         font-weight: 400;
         font-size: 18px;
@@ -119,6 +129,10 @@ span {
 
         @media (max-width: 880px) {
             font-size: 16px;
+        }
+
+        @media(max-width: 465px) {
+            font-size: 14px;
         }
 
         :focus {
@@ -164,6 +178,10 @@ span {
         font-size: 15px;
         color: white;
         margin-left: 10px;
+
+        @media(max-width: 465px) {
+            font-size: 14px;
+        }
     }
 
     a {
@@ -190,5 +208,13 @@ span {
 
     @media (max-width: 880px) {
         margin-bottom: 50px;
+    }
+
+    button {
+        @media(max-width: 465px) {
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 13px;
+        }
     }
 }

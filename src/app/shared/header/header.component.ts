@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -14,6 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Output() languageChange = new EventEmitter<string>();
 
   imageSrc: string = 'assets/img/english.png';
   isGerman: boolean = false;

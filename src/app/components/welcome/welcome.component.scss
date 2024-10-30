@@ -6,9 +6,18 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
 
+    @media(max-width: 465px) {
+        height: 100vh;
+    }
+
     .section_content {
         @include dFlex($jc: space-between, $ai: flex-end);
         position: relative;
+
+        @media(max-width: 465px) {
+            height: 100vh;
+            align-items: flex-start;
+        }
     }
 
     .welcome_content {
@@ -16,6 +25,10 @@ section {
         display: flex;
         justify-content: space-between;
         @include contentPadding();
+
+        @media(max-width: 605px) {
+            align-self: self-end;
+        }
     }
 }
 
@@ -33,11 +46,19 @@ section {
         margin-top: 372px;
     }
 
+    @media(max-width: 465px) {
+        margin-top: 300px;
+    }
+
     .vector_left {
         margin-top: 20px;
         width: 1px;
         height: 246px;
         background-color: #3DCFB6;
+
+        @media(max-width: 465px) {
+            height: 150px;
+        }
     }
 
     .animated_button {
@@ -82,7 +103,11 @@ section {
 }
 
 .main_section {
-    margin-top: 120px;
+    margin-top: 145px;
+
+    @media(max-width: 465px) {
+        margin-top: 0;
+    }
 
     h1 {
         font-size: 132px;
@@ -103,6 +128,10 @@ section {
 
         @media(max-width: 605px) {
             font-size: 60px;
+        }
+
+        @media(max-width: 465px) {
+            font-size: 42px;
         }
     }
 
@@ -126,6 +155,10 @@ section {
         @media(max-width: 605px) {
             font-size: 20px;
         }
+
+        @media(max-width: 465px) {
+            font-size: 16px;
+        }
     }
 
     .btn_section {
@@ -144,6 +177,12 @@ section {
                 margin-left: 15px;
                 margin-right: 15px;
             }
+
+            @media(max-width: 465px) {
+                margin-left: 5px;
+                margin-right: 5px;
+                padding: 9px 9px
+            }
         }
     }
 }
@@ -152,26 +191,38 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     margin-top: 309px;
     width: 20px;
 
-    span {
-        transform: rotate(-90deg);
+    @media(max-width: 465px) {
+        margin-top: 204px;
+    }
+
+    .mail {
+        text-decoration: none;
         font-size: 18px;
-        font-family: 'Karla', sans-serif;
-        color: #FFFFFF;
+        transform: rotate(-90deg);
 
-        @media(max-width: 1110px) {
-            font-size: 16px;
-        }
+        span {
+            font-family: 'Karla', sans-serif;
+            color: #FFFFFF;
+            vertical-align: text-top;
+            margin-left: 5px;
 
-        @media(max-width: 880px) {
-            display: none;
-        }
+            @media(max-width: 1110px) {
+                font-size: 16px;
+                margin-left: -20px;
+            }
 
-        &:hover {
-            color: #3DCFB6;
-            cursor: default;
+            @media(max-width: 880px) {
+                display: none;
+            }
+
+            &:hover {
+                color: #3DCFB6;
+                cursor: pointer;
+            }
         }
     }
 
@@ -206,6 +257,11 @@ section {
                     height: 28px;
                     width: 28px;
                 }
+
+                @media(max-width: 605px) {
+                    height: 25px;
+                    width: 25px;
+                }
             }
 
             &::after {
@@ -219,6 +275,10 @@ section {
                 transition: opacity 0.3s ease;
                 color: #3DCFB6;
                 transform: translateY(-50%);
+
+                @media(max-width: 465px) {
+                    display: none;
+                }
             }
 
             &:hover::after {
@@ -231,6 +291,10 @@ section {
             background-color: #FFFFFF;
             width: 0.5px;
             height: 145px;
+
+            @media(max-width: 605px) {
+                height: 102px;
+            }
         }
     }
 }
@@ -242,7 +306,7 @@ section {
     height: 62px;
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
-    overflow: hidden;
+    overflow-x: hidden;
     position: absolute;
     bottom: 44px;
     left: 0;
@@ -290,6 +354,10 @@ section {
 
             @media(max-width: 880px) {
                 font-size: 20px;
+            }
+
+            @media(max-width: 465px) {
+                margin: 0;
             }
         }
 

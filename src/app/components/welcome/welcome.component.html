@@ -2,7 +2,7 @@
     <div class="section_content">
         <div class="welcome_content">
             <div class="arrow_down">
-                <a class="animated_button" href="">
+                <a class="animated_button" href="#aboutMeSection">
                     <p>&#8595;</p>
                 </a>
                 <div class="vector_left"></div>
@@ -13,22 +13,22 @@
                     <h1>Josy Krüger</h1>
                 </div>
                 <div class="btn_section">
-                    <a href="">{{ 'my_work' | translate }}</a>
-                    <a href="">{{ 'contact_me' | translate }}</a>
+                    <a href="#aboutProjectsSection">{{ 'my_work' | translate }}</a>
+                    <a href="#aboutContactSection">{{ 'contact_me' | translate }}</a>
                 </div>
             </div>
             <div class="header_contacts">
-                <span>JosyKrueger2&#64;web.de</span>
+                <a class="mail" href="#aboutContactSection"><span>JosyKrueger2&#64;web.de</span></a>
                 <div class="margin">
-                    <a class="mail_icon" href="">
+                    <a class="mail_icon" href="#aboutContactSection">
                         <img [src]="mailImageSrc" (mouseover)="mailImageSrc='assets/img/mail-icon-white.png'"
                             (mouseout)="mailImageSrc='assets/img/mail-icon-green.png'" alt="">
                     </a>
-                    <a href="">
+                    <a href="https://github.com/dashboard" target="_blank">
                         <img [src]="githubImageSrc" (mouseover)="githubImageSrc='assets/img/github-icon-white.png'"
                             (mouseout)="githubImageSrc='assets/img/github-icon-green.png'" alt="">
                     </a>
-                    <a href="">
+                    <a href="https://www.linkedin.com/in/josy-kr%C3%BCger-876a98272/" target="_blank">
                         <img [src]="linkedinImageSrc"
                             (mouseover)="linkedinImageSrc='assets/img/linkedin-icon-white.png'"
                             (mouseout)="linkedinImageSrc='assets/img/linkedin-icon-green.png'" alt="">

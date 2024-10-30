@@ -1,5 +1,5 @@
-@import '../../../../styles.scss';
-@import '../../../../mixin.scss';
+@import '../../../styles.scss';
+@import '../../../mixin.scss';
 
 .dialog_bg {
 
@@ -20,6 +20,13 @@
 
         .close_details {
             text-align: end;
+
+
+            img {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
         }
 
         .project_image {

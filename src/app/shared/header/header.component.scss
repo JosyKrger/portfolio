@@ -8,7 +8,6 @@ section {
 nav {
     @include dFlex($jc: space-between !important);
     max-width: 1262px;
-    border: 1px solid red;
     padding-top: 30px;
     @include contentPadding();
 

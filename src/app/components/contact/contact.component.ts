@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -30,7 +30,7 @@ export class ContactComponent {
   checkboxError: boolean = false;
 
 
-  constructor(private http: HttpClient) {}
+  http = inject(HttpClient);
 
 
   toggleCheckbox() {
@@ -38,7 +38,7 @@ export class ContactComponent {
     this.checkboxImage = this.isCheckboxChecked ? this.checkboxIsChecked : this.checkboxIsBlank;
   }
 
-  
+
   mailTest = true;
 
 
@@ -50,43 +50,33 @@ export class ContactComponent {
 
 
   post = {
-    endPoint: 'https://deineDomain.de/sendMail.php',
+    endPoint: 'https://josy-krueger.com/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
-        'Content-Type': 'text/plain',
-        responseType: 'text',
+        'Content-Type': 'text/plain'  // Achtung: `text/plain` auf `application/json` ändern, falls JSON gesendet wird
       },
     },
   };
 
+
   onSubmit(ngForm: NgForm) {
     this.checkboxError = false;
     if (!this.isCheckboxChecked) {
-      this.checkboxError = true; 
+      this.checkboxError = true;
       return;
     }
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      this.http.post(this.post.endPoint, this.post.body(this.contactData))
+    if (ngForm.submitted && ngForm.form.valid) {
+      this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options) // Optionen hier hinzufügen
         .subscribe({
           next: (response: any) => {
             if (response.status === 'success') {
               ngForm.resetForm();
               this.isCheckboxChecked = false;
               this.checkboxImage = this.checkboxIsBlank;
-            } else {
-              console.error('Error:', response.message);
             }
-          },
-          error: (error) => {
-            console.error('Error sending email:', error);
-          },
-          complete: () => console.info('Post request complete'),
+          }
         });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      ngForm.resetForm();
-      this.isCheckboxChecked = false;
-      this.checkboxImage = this.checkboxIsBlank; 
     }
   }
 }

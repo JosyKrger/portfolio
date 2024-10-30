@@ -2,17 +2,19 @@
     <div class="section_content">
         <div *ngIf="isMobileView && isDialogOpen">
             <div id="dialogMobile" class="dialog_bg">
-                <app-mobile-dialog [selectedProject]="selectedProject" (dialogClose)="closeDialog()"></app-mobile-dialog>
+                <app-mobile-details [selectedProject]="selectedProject" (dialogClose)="closeDialog()"
+                    (nextProject)="showNextProject()">
+                </app-mobile-details>
             </div>
         </div>
-        <div *ngIf="!isMobileView && isDialogOpen">
+        <div *ngIf="!isMobileView && isDialogOpen" class="desktop_dialog">
             <div id="dialog" class="dialog_bg d_none" *ngIf="isDialogOpen">
                 <div class="dialog">
                     <div class="project_details">
                         <h1>{{ getFormattedNumber(selectedProject?.number ?? 0) }}</h1>
                         <h2>{{ selectedProject?.title }}</h2>
                         <h3>What is this project about?</h3>
-                        <p>{{ selectedProject?.description }}</p>
+                        <p class="description">{{ 'projectPopUp.' + getProjectKey(selectedProject?.title) + '.description' | translate }}</p>
                         <div class="project_details_technologies">
                             <div class="single_technology" *ngFor="let tech of selectedProject?.technologies">
                                 <img [src]="tech.icon" alt="{{ tech.name }} icon">
@@ -20,10 +22,9 @@
                             </div>
                         </div>
                         <div class="project_details_btn_section">
-                            <a href="">Github</a>
-                            <a href="">Live Test</a>
+                            <a href="{{ selectedProject?.githubLink}}">Github</a>
+                            <a href="{{ selectedProject?.livetestLink}}">Live Test</a>
                         </div>
-    
                     </div>
                     <div class="project_image">
                         <img (click)="closeDialog()" class="close_dialog" [src]="closeDialogImageSrc"

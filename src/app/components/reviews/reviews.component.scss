@@ -3,14 +3,14 @@
 
 section {
     background-color: #1C1C1C;
-    height: 70vh;
+    height: auto;
 
     @media(max-width: 1110px) {
         height: auto;
     }
 
     .section_content {
-        height: 70vh;
+        height: auto;
         max-width: 1440px;
 
         @media(max-width: 1110px) {
@@ -19,14 +19,15 @@ section {
     }
 
     .headline {
-        margin-top: 120px;
 
         h1 {
             font-family: 'Fira Code', sans-serif;
             font-weight: 700;
             font-size: 32px;
             color: #3DCFB6;
-            margin-top: -50px;
+            padding-top: 100px;
+            margin-top: 0;
+            margin-bottom: 35px;
 
             @media(max-width: 880px) {
                 font-size: 28px;
@@ -35,6 +36,7 @@ section {
             @media(max-width: 605px) {
                 font-size: 24px;
                 padding: 0 10px;
+                padding-top: 75px;
             }
         }
     }
@@ -54,6 +56,10 @@ section {
     @media (max-width: 1110px) {
         height: 260px;
     }
+
+    @media (max-width: 465px) {
+        height: 310px;
+    }
 }
 
 
@@ -70,6 +76,10 @@ section {
     @media(max-width: 605px) {
         width: 80px;
     }
+
+    @media(max-width: 465px) {
+        width: 20px;
+    }
 }
 
 .carousel::before {
@@ -79,6 +89,10 @@ section {
     @media (max-width: 1110px) {
         left: -90px;
     }
+
+    @media(max-width: 465px) {
+        left: -40px;
+    }
 }
 
 .carousel::after {
@@ -87,6 +101,10 @@ section {
 
     @media (max-width: 1110px) {
         right: -90px;
+    }
+
+    @media(max-width: 465px) {
+        right: -40px;
     }
 }
 
@@ -98,6 +116,10 @@ section {
     position: relative;
     margin: auto;
     z-index: 0;
+
+    @media(max-width: 465px) {
+        margin-top: 20px;
+    }
 }
 
 .ng-container {
@@ -139,6 +161,11 @@ section {
 
     @media(max-width: 605px) {
         max-width: 250px;
+    }
+
+    @media(max-width: 465px) {
+        width: 160px;
+        height: 190px;
     }
 
     p {
@@ -189,11 +216,10 @@ section {
 .carousel-controls {
     @include dFlex();
     width: 100%;
-    position: absolute;
     z-index: 10;
 
     @media (max-width: 1110px) {
-        margin-top: -30px;
+        margin-top: -10px;
     }
 
     .prev,

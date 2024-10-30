@@ -21,6 +21,33 @@
     "lets_talk": "Let's Talk",
     "featured_projects": "Featured Projects",
     "explore_projects": "Explore a selection of my work here - Interact with projects to see my skills in action.",
+    "projects_details": "What is this project about?",
+    "projectPopUp": {
+        "join": {
+            "description": "Task manager insoired by the Banban System. Create organize tasks using drag and drop functions, assign users and categories."
+        },
+        "el_pollo_loco": {
+            "description": "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen."
+        },
+        "dabubble": {
+            "description": "This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuituve interface, real-time messaging, and robust channel organization."
+        }
+    },
+    "reviewsTitle": "What my colleagues say about me",
+    "reviews": {
+        "0": {
+            "quote": "It is always a pleasure to work with Josy. She brings fresh ideas and has a structured approach that helps the entire team stay organized. Even in stressful situations, Josy remains calm and supports her colleagues.",
+            "author": "A. Ensslin - Team Partner"
+        },
+        "1": {
+            "quote": "Josy is a reliable team player. She always completes her tasks on time and is not afraid to help others when they need support. Her ability to contribute constructively in group situations is extremely valuable.",
+            "author": "T. Schmidt - Frontend-Entwickler"
+        },
+        "2": {
+            "quote": "I appreciate the way Josy engages in our projects. She has the ability to quickly identify problems and collaboratively find solutions. Her positive attitude motivates the entire team and contributes to successful teamwork.",
+            "author": "J. Braun - Frontend-Entwickler"
+        }
+    },
     "lets_work": "Let's work",
     "together": "together",
     "problem_to_solve": "Got a problem to solve?",
@@ -29,8 +56,18 @@
     "customers_name": "Whats's your name?",
     "customers_mail": "What's your email?",
     "customers_concerns": "How can I help you?",
+    "placeholder_name": "Your name goes here",
+    "placeholder_error_name": "Ops! Your name is missing",
+    "placeholder_email": "youremail@email.com",
+    "placeholder_error_email": "Hoppla! your email is required",
+    "placeholder_message": "Hello Josy, I am interested in...",
+    "placeholder_error_message": "What do you need to develop?",
     "privacy_policy_part1": "I've read the",
     "privacy_policy_part2": "privacy policy",
     "privacy_policy_part3": "and agree to the processing of my data as outlined.",
-    "say_hello": "Say Hello ;)"
+    "say_hello": "Say Hello ;)",
+    "imprint": "Imprint",
+    "back_to_homepage": "Back to Homepage",
+    "web_developer": "Web Developer",
+    "switzerland": "Canton of Zug, Switzerland"
 }

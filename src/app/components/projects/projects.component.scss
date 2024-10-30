@@ -5,7 +5,6 @@ section {
     background-color: #1C1C1C;
     align-content: center;
     height: auto;
-    padding-top: 80px;
 
     .section_content {
         height: auto;
@@ -49,6 +48,10 @@ h1 {
     @media(max-width: 605px) {
         text-wrap: balance;
     }
+}
+
+h4 {
+    margin-top: 80px;
 }
 
 .info_content {

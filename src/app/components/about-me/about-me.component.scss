@@ -3,14 +3,14 @@
 
 section {
     background-color: #1C1C1C;
-    height: 110vh;
+    height: auto;
 
     @media(max-width: 1110px) {
         height: auto;
     }
 
     .section_content {
-        height: 110vh;
+        height: auto;
         @include formattingContent($jc: space-between);
         @include contentPadding();
         max-width: 1260px;

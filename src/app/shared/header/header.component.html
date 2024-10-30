@@ -3,9 +3,9 @@
         <div class="links">
             <img [src]="imageSrc" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" (click)="translateWebsite()"
                 alt="Language Toggle">
-            <a href="">{{ 'about_me' | translate }}</a>
-            <a href="">{{ 'skills' | translate }}</a>
-            <a href="">{{ 'projects' | translate }}</a>
+            <a href="#aboutMeSection">{{ 'about_me' | translate }}</a>
+            <a href="#aboutSkillsSection">{{ 'skills' | translate }}</a>
+            <a href="#aboutProjectsSection">{{ 'projects' | translate }}</a>
         </div>
         <div class="logo">
             <div class="abbreviation">
@@ -22,9 +22,9 @@
         </div>
         <div class="open_menu" *ngIf="isMenuOpen">
             <div class="mobile_links">
-                <a href="">{{ 'about_me' | translate }}</a>
-                <a href="">{{ 'skills' | translate }}</a>
-                <a href="">{{ 'projects' | translate }}</a>
+                <a href="#aboutMeSection">{{ 'about_me' | translate }}</a>
+                <a href="#aboutSkillsSection">{{ 'skills' | translate }}</a>
+                <a href="#aboutProjectsSection">{{ 'projects' | translate }}</a>
                 <img [src]="imageSrc" 
                      (mouseover)="onMouseOver()" 
                      (mouseout)="onMouseOut()" 
