@@ -46,7 +46,7 @@ export class ContactComponent {
   }
 
 
-  mailTest = false;
+  mailTest = true;
 
 
   post = {
