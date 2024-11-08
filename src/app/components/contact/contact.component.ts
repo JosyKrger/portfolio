@@ -46,7 +46,7 @@ export class ContactComponent {
   }
 
 
-  mailTest = false;
+  mailTest = true;
 
 
   post = {
@@ -66,7 +66,7 @@ export class ContactComponent {
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
-
+            console.log(this.post.endPoint, this.post.body(this.contactData));
             ngForm.resetForm();
           },
           error: (error) => {
@@ -75,7 +75,7 @@ export class ContactComponent {
           complete: () => console.info('send post complete'),
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-
+      console.log(this.post.endPoint, this.post.body(this.contactData), "test");
       ngForm.resetForm();
     }
   }
