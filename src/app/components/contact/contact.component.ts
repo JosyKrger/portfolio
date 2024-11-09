@@ -56,7 +56,7 @@ export class ContactComponent {
       headers: {
         'Content-Type': 'application/json',
       },
-      responseType: 'json' as const 
+      responseType: 'text' as const 
     },
   };
 
