@@ -46,7 +46,7 @@ export class ContactComponent {
   }
 
 
-  mailTest = true;
+  mailTest = false;
 
 
   post = {
@@ -54,29 +54,34 @@ export class ContactComponent {
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
-        'Content-Type': 'text/plain',
-        responseType: 'text',
+        'Content-Type': 'application/json',
       },
+      responseType: 'json' as const 
     },
   };
 
 
   onSubmit(ngForm: NgForm) {
     if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      this.http.post(this.post.endPoint, this.post.body(this.contactData))
+      // Prüfe, ob die Daten korrekt sind
+      console.log("Contact data:", this.contactData);
+
+      // Die Anfrage absenden
+      this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
         .subscribe({
           next: (response) => {
-            console.log(this.post.endPoint, this.post.body(this.contactData));
-            ngForm.resetForm();
+            console.log("Email sent successfully:", response);
+            ngForm.resetForm();  // Formular zurücksetzen nach erfolgreichem Senden
           },
           error: (error) => {
-            console.error(error);
+            console.error('Error occurred:', error);
+            // Zusätzliche Fehlerbehandlung
+            alert(`Fehler: ${error.message || error.statusText}`);
           },
-          complete: () => console.info('send post complete'),
+          complete: () => console.info('Post request complete')
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      console.log(this.post.endPoint, this.post.body(this.contactData), "test");
-      ngForm.resetForm();
+      ngForm.resetForm();  // Nur zurücksetzen, wenn mailTest aktiv ist
     }
   }
 }
