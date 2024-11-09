@@ -27,7 +27,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $headers[] = 'Content-type: application/javascript; charset=utf-8';
 
         // Additional headers
-        $headers[] = "From: noreply@mywebsite.com";
+        $headers[] = "From: no-reply@josy-krueger.com";
 
         if (mail($recipient, $subject, $message, implode("\r\n", $headers))) {
             // Erfolgreiche Antwort im JSON-Format
