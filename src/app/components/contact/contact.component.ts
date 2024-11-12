@@ -18,9 +18,9 @@ import { TranslateModule } from '@ngx-translate/core';
 export class ContactComponent {
 
   contactData = {
-    name: "",
-    email: "",
-    message: ""
+    name: '',
+    email: '',
+    message: ''
   }
 
   checkboxIsBlank: string = 'assets/img/checkbox_blank.png';
@@ -56,32 +56,26 @@ export class ContactComponent {
       headers: {
         'Content-Type': 'application/json',
       },
-      responseType: 'text' as const 
+      responseType: 'json' as const
     },
   };
 
 
   onSubmit(ngForm: NgForm) {
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      // Prüfe, ob die Daten korrekt sind
-      console.log("Contact data:", this.contactData);
-
-      // Die Anfrage absenden
+    if (ngForm.submitted && ngForm.form.valid && this.isCheckboxChecked && !this.mailTest) {
       this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
         .subscribe({
           next: (response) => {
-            console.log("Email sent successfully:", response);
-            ngForm.resetForm();  // Formular zurücksetzen nach erfolgreichem Senden
-          },
-          error: (error) => {
-            console.error('Error occurred:', error);
-            // Zusätzliche Fehlerbehandlung
-            alert(`Fehler: ${error.message || error.statusText}`);
-          },
-          complete: () => console.info('Post request complete')
+            ngForm.resetForm();
+            this.contactData = { name: '', email: '', message: '' };
+            this.isCheckboxChecked = false;
+            this.checkboxImage = this.checkboxIsBlank;
+          }
         });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      ngForm.resetForm();  // Nur zurücksetzen, wenn mailTest aktiv ist
+    } else {
+      if (!this.isCheckboxChecked) {
+        this.checkboxError = true;
+      }
     }
   }
 }
