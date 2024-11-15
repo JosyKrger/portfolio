@@ -11,6 +11,7 @@ section {
     }
 
     .section_content {
+        position: relative;
         max-width: 1260px;
         height: auto;
         @include contentPadding();
@@ -31,6 +32,26 @@ section {
 .error_message {
     margin-top: 10px;
     color: #EC7B7BCC;
+}
+
+.success-notification {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    .notification-message {
+        position: fixed;
+        top: 40%;
+        background-color: rgba(28, 28, 28, 0.95);
+        color: #3DCFB6;
+        padding: 25px;
+        border: 1px solid #3DCFB6;
+        border-radius: 15px;
+        text-align: center;
+        width: 173px;
+        font-size: 1rem;
+        font-family: "Fira Code", sans-serif;
+    }
 }
 
 .about_contact {
@@ -139,6 +160,12 @@ span {
 
         :focus {
             color: white;
+        }
+
+        input:-webkit-autofill {
+            background-color: transparent !important;
+            -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+            box-shadow: 0 0 0px 1000px transparent inset !important;
         }
     }
 

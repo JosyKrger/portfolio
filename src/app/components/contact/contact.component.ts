@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -27,23 +27,83 @@ export class ContactComponent {
   checkboxIsChecked: string = 'assets/img/checkbox_checked.png';
   checkboxImage: string = this.checkboxIsBlank;
   isCheckboxChecked: boolean = false;
+  showFieldErrorNotification: boolean = false;
+  showSuccessNotification: boolean = false;
   checkboxError: boolean = false;
-  showErrors: boolean = false;
+  mailTest: boolean = false;
+  showErrors = false;
+  isSubmitted: boolean = false;
 
   http = inject(HttpClient);
+
 
   toggleCheckbox() {
     this.isCheckboxChecked = !this.isCheckboxChecked;
     this.checkboxImage = this.isCheckboxChecked ? this.checkboxIsChecked : this.checkboxIsBlank;
+    this.checkboxError = false;
   }
 
-  checkField(input: any) {
-    if (input.invalid && input.touched) {
-      console.error(`The field ${input.name} is invalid.`);
+
+  checkInputFields(isValid: boolean): boolean {
+    if (!this.contactData.name.trim()) {
+      isValid = false;
     }
+    if (!this.contactData.email.trim()) {
+      isValid = false;
+    }
+    if (!this.contactData.message.trim()) {
+      isValid = false;
+    }
+    if (!this.isCheckboxChecked) {
+      this.checkboxError = true;
+      isValid = false;
+    } else {
+      this.checkboxError = false;
+    }
+    return isValid;
   }
 
-  mailTest = false;
+
+  inputFieldsNotValid(isValid: boolean): boolean {
+    if (!isValid) {
+      this.showFieldErrorNotification = true;
+      setTimeout(() => {
+        this.showFieldErrorNotification = false;
+      }, 3000);
+      return true;
+    }
+    return false;
+  }
+
+
+  resetForm(ngForm: NgForm) {
+    ngForm.resetForm();
+    this.contactData = { name: '', email: '', message: '' };
+    this.isCheckboxChecked = false;
+    this.checkboxError = false;
+    this.showFieldErrorNotification = false;
+    this.checkboxImage = this.checkboxIsBlank;
+    this.showSuccessNotification = true;
+
+    this.isSubmitted = false; 
+    setTimeout(() => {
+        this.showSuccessNotification = false;
+    }, 3500); 
+}
+
+
+  sendMail(ngForm: NgForm) {
+    this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
+      .subscribe({
+        next: () => {
+          this.resetForm(ngForm);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+  }
+
 
   post = {
     endPoint: 'https://josy-krueger.com/sendMail.php',
@@ -56,28 +116,14 @@ export class ContactComponent {
     },
   };
 
+
   onSubmit(ngForm: NgForm) {
-    if (ngForm.valid && this.isCheckboxChecked) {
-      // Senden der Daten
-      this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
-        .subscribe({
-          next: (response) => {
-            ngForm.resetForm();
-            this.contactData = { name: '', email: '', message: '' };
-            this.isCheckboxChecked = false;
-            this.checkboxImage = this.checkboxIsBlank;
-            this.checkboxError = false; // Reset Checkbox-Fehler
-            this.showErrors = false; // Reset Fehler-Anzeige
-          },
-          error: (err) => {
-            console.error(err);
-          }
-        });
-    } else {
-      this.showErrors = true; // Fehler-Anzeige aktivieren
-      if (!this.isCheckboxChecked) {
-        this.checkboxError = true; // Checkbox-Fehler anzeigen
-      }
+    this.isSubmitted = true;
+    let isValid = true;
+    isValid = this.checkInputFields(isValid);
+    if (this.inputFieldsNotValid(isValid)) {
+      return;
     }
+    this.sendMail(ngForm);
   }
 }

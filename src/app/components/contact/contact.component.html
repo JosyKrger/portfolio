@@ -18,27 +18,24 @@
             <div class="contact_section">
                 <h2>{{ 'customers_name' | translate }}</h2>
                 <input [(ngModel)]="contactData.name" name="name" type="text"
-                    [ngClass]="{'error-placeholder': nameInput.invalid && nameInput.touched}" [placeholder]="nameInput.invalid && nameInput.touched 
-                                      ? ('placeholder_error_name' | translate) 
-                                      : ('placeholder_name' | translate)" required #nameInput="ngModel"
-                    (blur)="checkField(nameInput)">
+                    [ngClass]="{'error-placeholder': isSubmitted && nameInput.invalid}" [placeholder]="isSubmitted && nameInput.invalid 
+                                  ? ('placeholder_error_name' | translate) 
+                                  : ('placeholder_name' | translate)" required #nameInput="ngModel">
             </div>
             <div class="contact_section">
                 <h2>{{ 'customers_mail' | translate }}</h2>
                 <input [(ngModel)]="contactData.email" name="email" type="email"
-                    [ngClass]="{'error-placeholder': emailInput.invalid && emailInput.touched}" [placeholder]="emailInput.invalid && emailInput.touched 
-                                      ? ('placeholder_error_email' | translate) 
-                                      : ('placeholder_email' | translate)" required
-                    pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" #emailInput="ngModel"
-                    (blur)="checkField(emailInput)">
+                    [ngClass]="{'error-placeholder': isSubmitted && emailInput.invalid}" [placeholder]="isSubmitted && emailInput.invalid 
+                                  ? ('placeholder_error_email' | translate) 
+                                  : ('placeholder_email' | translate)" required
+                    pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" #emailInput="ngModel">
             </div>
             <div class="contact_section">
                 <h2>{{ 'customers_concerns' | translate }}</h2>
                 <input [(ngModel)]="contactData.message" name="message" type="text"
-                    [ngClass]="{'error-placeholder': messageInput.invalid && messageInput.touched}" [placeholder]="messageInput.invalid && messageInput.touched 
-                                      ? ('placeholder_error_message' | translate) 
-                                      : ('placeholder_message' | translate)" required #messageInput="ngModel"
-                    (blur)="checkField(messageInput)">
+                    [ngClass]="{'error-placeholder': isSubmitted && messageInput.invalid}" [placeholder]="isSubmitted && messageInput.invalid 
+                                  ? ('placeholder_error_message' | translate) 
+                                  : ('placeholder_message' | translate)" required #messageInput="ngModel">
             </div>
             <div class="privacy_policy_check">
                 <div class="checkbox_sector">
@@ -55,8 +52,13 @@
                 Please accept the privacy policy.
             </div>
             <div class="btn_section">
-                <button type="submit" [disabled]="contactForm.invalid">{{ 'say_hello' | translate }}</button>
+                <button type="submit">{{ 'say_hello' | translate }}</button>
             </div>
         </form>
     </div>
 </section>
+<div *ngIf="showSuccessNotification" class="success-notification">
+    <div class="notification-message">
+        <p>{{ 'email_sent_successfully' | translate }}</p>
+    </div>
+</div>
