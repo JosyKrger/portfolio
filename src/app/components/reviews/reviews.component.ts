@@ -25,7 +25,6 @@ export class ReviewsComponent implements AfterViewInit {
   ];
 
 
-  // reviews: any[] = [];
   currentIndex: number = 0;
   reviewsCount = 3;
   direction: 'next' | 'prev' = 'next';
@@ -82,7 +81,6 @@ export class ReviewsComponent implements AfterViewInit {
 
   ngOnInit() {
     this.translate.get('reviews').subscribe((data) => {
-      console.log("Reviews loaded:", data);
     });
   }
 

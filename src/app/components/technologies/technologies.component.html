@@ -14,20 +14,25 @@
                         <span>{{ 'feel_free_to_contact' | translate }}</span>
                     </div>
                     <div class="btn_section">
-                        <a href="#aboutContactSection">{{ 'lets_talk' | translate }}</a>
+                        <a href="#aboutContactSection" (click)="scrollToSection($event, 'aboutContactSection')">{{
+                            'lets_talk' | translate }}</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="skill_icon_section">
             <div class="skill_icon_content">
-                @for (skill of skills; track $index) {
-                <div class="single_icon">
-                    <img src="{{ skill.icon }}" alt="">
-                    <p>{{ skill.description }}</p>
-                </div>
-                }
+              <div *ngFor="let skill of skills; let i = index" class="single_icon">
+                <img src="{{ skill.icon }}" alt="">
+                <p>{{ skill.description }}</p>
+                
+                <!-- Das zusätzliche Bild -->
+                <img *ngIf="skill.description === 'Growth mindset'" 
+                     src="/assets/img/growth-mindset-bubble.png" 
+                     alt="Growth Mindset Hover Image" 
+                     class="hover-image">
+              </div>
             </div>
-        </div>
+          </div>
     </div>
 </section>

@@ -9,7 +9,7 @@
                     <span>{{ 'contact_form' | translate }}</span>
                     <div class="lets_talk_section">
                         <span>{{ 'need_developer' | translate }}&nbsp;</span>
-                        <span class="color">{{ 'lets_talk' | translate }}</span>
+                        <span class="color">{{ 'lets_talk' | translate }} -></span>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,8 @@
             </div>
             <div class="privacy_policy_check">
                 <div class="checkbox_sector">
-                    <img (click)="toggleCheckbox()" [src]="checkboxImage" alt="Checkbox">
+                    <img (click)="toggleCheckbox()"
+                        [src]="checkboxError ? 'assets/img/checkbox_error.png' : checkboxImage" alt="Checkbox">
                 </div>
                 <span>
                     {{ 'privacy_policy_part1' | translate }}&nbsp;&nbsp;

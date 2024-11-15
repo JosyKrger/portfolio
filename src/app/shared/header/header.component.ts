@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -20,13 +21,27 @@ export class HeaderComponent {
   isGerman: boolean = false;
   isMenuOpen: boolean = false; 
 
+
+  scrollToSection(event: Event, sectionId: string): void {
+    event.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+
+  navigateToHome() {
+    this.router.navigate(['/']);
+  }
+
  
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen; 
   }
 
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private router: Router) {
     this.translate.setDefaultLang('en');
   }
 

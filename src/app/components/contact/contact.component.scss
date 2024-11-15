@@ -4,6 +4,7 @@
 
 section {
     background-color: #1C1C1C;
+    margin-top: -3px;
 
     @media (max-width: 1110px) {
         height: auto;
@@ -11,6 +12,7 @@ section {
 
     .section_content {
         max-width: 1260px;
+        height: auto;
         @include contentPadding();
         @include formattingContent($jc: space-between);
 

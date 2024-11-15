@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -5,13 +6,15 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-technologies',
   standalone: true,
   imports: [
-    TranslateModule
+    TranslateModule,
+    CommonModule
   ],
   templateUrl: './technologies.component.html',
   styleUrl: './technologies.component.scss'
 })
 export class TechnologiesComponent {
 
+  
   skills: { icon: string, description: string }[] = [
     {
       icon: 'assets/img/html-icon.png',
@@ -59,4 +62,12 @@ export class TechnologiesComponent {
     }
   ];
   
+
+  scrollToSection(event: Event, sectionId: string): void {
+    event.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

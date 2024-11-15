@@ -14,6 +14,7 @@ section {
 
     .section_content {
         max-width: 1260px;
+        padding-bottom: 50px;
         height: auto;
         @include formattingContent($jc: space-between);
         @include contentPadding();
@@ -75,9 +76,14 @@ section {
 
         .second_headline {
             white-space: nowrap;
+            font-size: 14px;
 
             @media(max-width: 465px) {
                 font-size: 14px;
+            }
+
+            h2 {
+                font-family: 'Fira Code', sans-serif;
             }
         }
     }
@@ -119,6 +125,7 @@ section {
         }
 
         .single_icon {
+            position: relative;
             height: 100px;
             width: 100px;
 
@@ -173,6 +180,26 @@ section {
                 @media(max-width: 605px) {
                     font-size: 14px;
                 }
+            }
+
+
+            .hover-image {
+                visibility: hidden;
+                position: absolute;
+                pointer-events: none;
+                top: -86px;
+                left: 88%;
+                transform: translateX(-50%);
+                z-index: 10;
+                height: 107px;
+                width: 150px;
+                opacity: 0;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            &:hover .hover-image {
+                visibility: visible;
+                opacity: 1;
             }
         }
     }

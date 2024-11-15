@@ -63,3 +63,24 @@ ul {
     list-style-type: none;
     padding: 0;
 }
+
+.back_to_homepage {
+    margin-top: 80px;
+    font-family: "Karla", sans-serif;
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+
+        &:hover {
+            color: #3DCFB6;
+        }
+
+        img {
+            height: 14px;
+            width: 14px;
+            margin-bottom: -2px;
+            margin-left: 5px;
+        }
+    }
+}

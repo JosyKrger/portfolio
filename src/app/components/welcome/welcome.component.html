@@ -2,7 +2,7 @@
     <div class="section_content">
         <div class="welcome_content">
             <div class="arrow_down">
-                <a class="animated_button" href="#aboutMeSection">
+                <a class="animated_button" href="#aboutContactSection" (click)="scrollToSection($event, 'aboutContactSection')">
                     <p>&#8595;</p>
                 </a>
                 <div class="vector_left"></div>
@@ -13,14 +13,14 @@
                     <h1>Josy Krüger</h1>
                 </div>
                 <div class="btn_section">
-                    <a href="#aboutProjectsSection">{{ 'my_work' | translate }}</a>
-                    <a href="#aboutContactSection">{{ 'contact_me' | translate }}</a>
+                    <a href="#aboutProjectsSection" (click)="scrollToSection($event, 'aboutProjectsSection')">{{ 'my_work' | translate }}</a>
+                    <a href="#aboutContactSection" (click)="scrollToSection($event, 'aboutContactSection')">{{ 'contact_me' | translate }}</a>
                 </div>
             </div>
             <div class="header_contacts">
-                <a class="mail" href="#aboutContactSection"><span>JosyKrueger2&#64;web.de</span></a>
+                <a class="mail" href="mailto:JosyKrueger2@web.de"><span>JosyKrueger2&#64;web.de</span></a>
                 <div class="margin">
-                    <a class="mail_icon" href="#aboutContactSection">
+                    <a class="mail_icon" href="mailto:JosyKrueger2@web.de">
                         <img [src]="mailImageSrc" (mouseover)="mailImageSrc='assets/img/mail-icon-white.png'"
                             (mouseout)="mailImageSrc='assets/img/mail-icon-green.png'" alt="">
                     </a>

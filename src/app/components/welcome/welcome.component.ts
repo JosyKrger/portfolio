@@ -18,4 +18,12 @@ export class WelcomeComponent {
   linkedinImageSrc: string = 'assets/img/linkedin-icon-green.png';
   mailImageSrc: string = 'assets/img/mail-icon-green.png';
 
+
+  scrollToSection(event: Event, sectionId: string): void {
+    event.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

@@ -8,7 +8,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Funktion zum Einlesen der .env-Datei und Laden der Umgebungsvariablen
-function loadEnv($path) {
+function loadEnv($path)
+{
     if (!file_exists($path)) {
         throw new Exception(".env file not found");
     }
@@ -66,10 +67,10 @@ if (isset($data['email'], $data['name'], $data['message'])) {
         $mail->Body = "<p>Neue Nachricht von: $userName</p><p>Nachricht:</p><p>$userMessage</p>";
 
         $mail->send();
-        echo 'Nachricht wurde gesendet';
+        echo json_encode(['message' => 'Nachricht wurde gesendet']);
     } catch (Exception $e) {
-        echo "Nachricht konnte nicht gesendet werden. Mailer Error: {$mail->ErrorInfo}";
+        echo json_encode(['error' => 'Nachricht konnte nicht gesendet werden.', 'details' => $mail->ErrorInfo]);
     }
 } else {
-    echo 'Fehler: Alle Felder müssen ausgefüllt sein.';
+    echo json_encode(['error' => 'Fehler: Alle Felder müssen ausgefüllt sein.']);
 }

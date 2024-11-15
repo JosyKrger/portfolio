@@ -3,11 +3,11 @@
         <div class="links">
             <img [src]="imageSrc" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" (click)="translateWebsite()"
                 alt="Language Toggle">
-            <a href="#aboutMeSection">{{ 'about_me' | translate }}</a>
-            <a href="#aboutSkillsSection">{{ 'skills' | translate }}</a>
-            <a href="#aboutProjectsSection">{{ 'projects' | translate }}</a>
+                <a href="#aboutMeSection" (click)="scrollToSection($event, 'aboutMeSection')">{{ 'about_me' | translate }}</a>
+                <a href="#aboutSkillsSection" (click)="scrollToSection($event, 'aboutSkillsSection')">{{ 'skills' | translate }}</a>
+                <a href="#aboutProjectsSection" (click)="scrollToSection($event, 'aboutProjectsSection')">{{ 'projects' | translate }}</a>
         </div>
-        <div class="logo">
+        <div class="logo" (click)="navigateToHome()">
             <div class="abbreviation">
                 <h3 class="fristname">Josy</h3>
                 <h4 class="first_name_letter">J</h4>
@@ -22,9 +22,9 @@
         </div>
         <div class="open_menu" *ngIf="isMenuOpen">
             <div class="mobile_links">
-                <a href="#aboutMeSection">{{ 'about_me' | translate }}</a>
-                <a href="#aboutSkillsSection">{{ 'skills' | translate }}</a>
-                <a href="#aboutProjectsSection">{{ 'projects' | translate }}</a>
+                <a href="#aboutMeSection" (click)="scrollToSection($event, 'aboutMeSection'); toggleMenu()">{{ 'about_me' | translate }}</a>
+                <a href="#aboutSkillsSection" (click)="scrollToSection($event, 'aboutSkillsSection'); toggleMenu()">{{ 'skills' | translate }}</a>
+                <a href="#aboutProjectsSection" (click)="scrollToSection($event, 'aboutProjectsSection'); toggleMenu()">{{ 'projects' | translate }}</a>
                 <img [src]="imageSrc" 
                      (mouseover)="onMouseOver()" 
                      (mouseout)="onMouseOut()" 

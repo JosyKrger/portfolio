@@ -42,15 +42,15 @@ export class MobileDetailsComponent {
       imageSrc: "assets/img/el-pollo-loco-preview.png",
       descriptionKey: "el_pollo_loco"
     },
-    {
-      number: 3,
-      title: "DABubble",
-      technologies: this.getTechnologiesForDABubble(),
-      githubLink: "",
-      livetestLink: "",
-      imageSrc: "assets/img/el-pollo-loco-preview.png",
-      descriptionKey: "daBubble"
-    }
+    // {
+    //   number: 3,
+    //   title: "DABubble",
+    //   technologies: this.getTechnologiesForDABubble(),
+    //   githubLink: "",
+    //   livetestLink: "",
+    //   imageSrc: "assets/img/el-pollo-loco-preview.png",
+    //   descriptionKey: "daBubble"
+    // }
   ];
 
 
