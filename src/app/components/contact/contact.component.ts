@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -10,12 +11,17 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [
     CommonModule,
     TranslateModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+
+
+  constructor(private router: Router) {}
+
 
   contactData = {
     name: '',

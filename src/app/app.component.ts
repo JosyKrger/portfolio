@@ -1,6 +1,6 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, Router } from '@angular/router';
+import { RouterOutlet, Router, RouterModule } from '@angular/router';
 import { MainContentComponent } from "./components/main-content/main-content.component";
 import { TranslateConfigModule } from './translate-config.module';
 import { TranslateModule } from '@ngx-translate/core';
@@ -26,7 +26,8 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpClientModule,
     FormsModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    RouterModule
   ],
 
   templateUrl: './app.component.html',

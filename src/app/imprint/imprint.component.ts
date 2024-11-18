@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from "../shared/header/header.component";
 import { FooterComponent } from "../shared/footer/footer.component";
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-imprint',
@@ -9,7 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [
     HeaderComponent,
     FooterComponent,
-    TranslateModule
+    TranslateModule,
+    RouterModule
   ],
   templateUrl: './imprint.component.html',
   styleUrl: './imprint.component.scss'
