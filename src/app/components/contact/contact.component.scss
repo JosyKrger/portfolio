@@ -35,12 +35,12 @@ section {
     color: #EC7B7BCC;
 }
 
-.success-notification {
+.success-notification, .wrongEmail-notification {
     width: 100vw;
     display: flex;
     justify-content: center;
 
-    .notification-message {
+    .notification-message, .wrong-email-message {
         position: fixed;
         top: 40%;
         background-color: rgba(28, 28, 28, 0.95);

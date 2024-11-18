@@ -29,6 +29,7 @@ export class ContactComponent {
   isCheckboxChecked: boolean = false;
   showFieldErrorNotification: boolean = false;
   showSuccessNotification: boolean = false;
+  emailIsNotCorrect: boolean = false;
   checkboxError: boolean = false;
   mailTest: boolean = false;
   showErrors = false;
@@ -46,21 +47,34 @@ export class ContactComponent {
 
   checkInputFields(isValid: boolean): boolean {
     if (!this.contactData.name.trim()) {
-      isValid = false;
+        isValid = false;
     }
     if (!this.contactData.email.trim()) {
-      isValid = false;
+        isValid = false;
+    } else if (!this.validateEmail(this.contactData.email)) {
+        this.emailIsNotCorrect = true;
+        isValid = false;
+
+        setTimeout(() => {
+            this.emailIsNotCorrect = false;
+        }, 4000);
     }
     if (!this.contactData.message.trim()) {
-      isValid = false;
+        isValid = false;
     }
     if (!this.isCheckboxChecked) {
-      this.checkboxError = true;
-      isValid = false;
+        this.checkboxError = true;
+        isValid = false;
     } else {
-      this.checkboxError = false;
+        this.checkboxError = false;
     }
     return isValid;
+}
+
+
+  validateEmail(email: string): boolean {
+    const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
   }
 
 
@@ -77,18 +91,36 @@ export class ContactComponent {
 
 
   resetForm(ngForm: NgForm) {
+    if (!this.checkInputFields(true)) {
+        this.showFieldErrorNotification = true;
+        setTimeout(() => {
+            this.showFieldErrorNotification = false;
+        }, 3000);
+        return; 
+    }
+
+    if (!this.validateEmail(this.contactData.email)) {
+        this.emailIsNotCorrect = true;
+        setTimeout(() => {
+            this.emailIsNotCorrect = false;
+        }, 4000);
+        return;
+    }
+
     ngForm.resetForm();
     this.contactData = { name: '', email: '', message: '' };
     this.isCheckboxChecked = false;
     this.checkboxError = false;
     this.showFieldErrorNotification = false;
+    this.emailIsNotCorrect = false;
     this.checkboxImage = this.checkboxIsBlank;
+
     this.showSuccessNotification = true;
 
     this.isSubmitted = false; 
     setTimeout(() => {
         this.showSuccessNotification = false;
-    }, 3500); 
+    }, 3500);
 }
 
 
@@ -120,10 +152,15 @@ export class ContactComponent {
   onSubmit(ngForm: NgForm) {
     this.isSubmitted = true;
     let isValid = true;
+
+    // Überprüfe die Felder mit der Methode
     isValid = this.checkInputFields(isValid);
-    if (this.inputFieldsNotValid(isValid)) {
-      return;
+
+    if (!isValid) {
+      return; // Abbruch bei ungültigen Eingaben
     }
+
+    // E-Mail senden und Erfolgsmeldung anzeigen
     this.sendMail(ngForm);
   }
 }
