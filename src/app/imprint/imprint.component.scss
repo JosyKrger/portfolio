@@ -30,6 +30,24 @@ section {
     }
 }
 
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.content-section {
+    flex: 1; 
+}
+
+app-footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: #1C1C1C; 
+    color: #fff; 
+}
+
 .back_to_homepage {
     margin-top: 80px;
 

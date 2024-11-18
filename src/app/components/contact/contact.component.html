@@ -1,5 +1,5 @@
 <section>
-    <div class="section_content">
+    <div class="section_content" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
         <div class="about_contact">
             <h4>{{ 'contact_me' | translate }}</h4>
             <div class="info_container">
@@ -40,11 +40,11 @@
             <div class="privacy_policy_check">
                 <div class="checkbox_sector">
                     <img (click)="toggleCheckbox()"
-                        [src]="checkboxError ? 'assets/img/checkbox_error.png' : checkboxImage" alt="Checkbox">
+                        [src]="checkboxError ? 'assets/img/checkbox_blank.png' : checkboxImage" alt="Checkbox">
                 </div>
                 <span>
                     {{ 'privacy_policy_part1' | translate }}&nbsp;&nbsp;
-                    <a href="/privacy-policy">{{ 'privacy_policy_part2' | translate }}</a>&nbsp;&nbsp;
+                    <a href="/privacy-policy" routerLinkActive="active">{{ 'privacy_policy_part2' | translate }}</a>&nbsp;&nbsp;
                     {{ 'privacy_policy_part3' | translate }}
                 </span>
             </div>

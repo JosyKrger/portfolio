@@ -197,16 +197,17 @@ h4 {
     align-items: center;
 
     .dialog {
-        background-image: url("/assets/img/landingpage-background.png");
+        background-image: url(/assets/img/landingpage-background.png);
         background-repeat: no-repeat;
         background-size: cover;
-        height: 75%;
-        width: 80%;
         border: 1px solid #3DCFB6;
         border-radius: 35px;
         padding: 50px;
         display: flex;
         justify-content: space-between;
+        max-width: 1200px;
+        margin-left: 30px;
+        margin-right: 30px;
 
         .project_details {
             width: 35%;

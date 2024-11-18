@@ -1,6 +1,6 @@
 <section>
     <div class="section_content">
-        <div class="about_skills">
+        <div class="about_skills" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
             <h4>{{ 'technologies' | translate }}</h4>
             <div class="info_container">
                 <h1>{{ 'skills' | translate }}</h1>
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="skill_icon_section">
+        <div class="skill_icon_section" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
             <div class="skill_icon_content">
               <div *ngFor="let skill of skills; let i = index" class="single_icon">
                 <img src="{{ skill.icon }}" alt="">
