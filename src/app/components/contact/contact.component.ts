@@ -104,7 +104,6 @@ export class ContactComponent {
         }, 3000);
         return; 
     }
-
     if (!this.validateEmail(this.contactData.email)) {
         this.emailIsNotCorrect = true;
         setTimeout(() => {
@@ -158,15 +157,16 @@ export class ContactComponent {
   onSubmit(ngForm: NgForm) {
     this.isSubmitted = true;
     let isValid = true;
-
-    // Überprüfe die Felder mit der Methode
     isValid = this.checkInputFields(isValid);
-
     if (!isValid) {
-      return; // Abbruch bei ungültigen Eingaben
+      return;
     }
-
-    // E-Mail senden und Erfolgsmeldung anzeigen
     this.sendMail(ngForm);
+  }
+
+  onNavigateToTop(url: string) {
+    this.router.navigate([url]).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 }

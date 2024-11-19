@@ -13,9 +13,12 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  // router = inject(Router);
 
-  // toImprint() {
-  //   this.router.navigate(['/imprint']);
-  // }
+  constructor(public router: Router) { }
+
+  onNavigateToTop(url: string) {
+    this.router.navigate([url]).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 }

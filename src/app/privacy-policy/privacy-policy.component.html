@@ -303,7 +303,7 @@
         </p>
     </div>
     <div class="back_to_homepage">
-        <a [routerLink]="['../main']">{{ 'back_to_homepage' | translate }} <img src="../../assets/img/arrow-forward-green.png" alt=""></a>
+        <a (click)="onNavigateToTop('../main')">{{ 'back_to_homepage' | translate }} <img src="../../assets/img/arrow-forward-green.png" alt=""></a>
     </div>
 </section>
 

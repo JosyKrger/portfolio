@@ -44,7 +44,7 @@
                 </div>
                 <span>
                     {{ 'privacy_policy_part1' | translate }}&nbsp;&nbsp;
-                    <a [routerLink]="['../privacy-policy']">{{ 'privacy_policy_part2' | translate
+                    <a (click)="onNavigateToTop('../privacy-policy')">{{ 'privacy_policy_part2' | translate
                         }}</a>&nbsp;&nbsp;
                     {{ 'privacy_policy_part3' | translate }}
                 </span>

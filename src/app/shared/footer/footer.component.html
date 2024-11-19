@@ -23,7 +23,7 @@
             <a href="https://github.com/dashboard" target="_blank">Github</a>
             <a href="https://www.linkedin.com/in/josy-kr%C3%BCger-876a98272/" target="_blank">LinkedIn</a>
             <a href="#aboutContactSection">Email</a>
-            <a [routerLink]="['../imprint']">{{ 'imprint' | translate }}</a>
+            <a (click)="onNavigateToTop('../imprint')">{{ 'imprint' | translate }}</a>
         </div>
     </div>
     <div class="footer_center_mobile">
