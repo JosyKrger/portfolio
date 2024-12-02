@@ -29,7 +29,7 @@ export class MobileDetailsComponent {
       title: "Join",
       technologies: this.getTechnologiesForJoin(),
       githubLink: "https://github.com/EnsslinAdrian/Join",
-      livetestLink: "https://join.josy-krueger.com",
+      livetestLink: "https://josy-krueger.com/join",
       imageSrc: "assets/img/join-preview.png",
       descriptionKey: "join"
     },
@@ -38,7 +38,7 @@ export class MobileDetailsComponent {
       title: "El Pollo Loco",
       technologies: this.getTechnologiesForElPolloLoco(),
       githubLink: "https://github.com/JosyKrger/El-Pollo-Loco",
-      livetestLink: "https://el-pollo-loco.josy-krueger.com",
+      livetestLink: "https://josy-krueger.com/el-pollo-loco",
       imageSrc: "assets/img/el-pollo-loco-preview.png",
       descriptionKey: "el_pollo_loco"
     },

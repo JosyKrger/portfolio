@@ -24,7 +24,7 @@
     "projects_details": "What is this project about?",
     "projectPopUp": {
         "join": {
-            "description": "Task manager insoired by the Banban System. Create organize tasks using drag and drop functions, assign users and categories."
+            "description": "Task manager inspired by the Kanban System. Create organize tasks using drag and drop functions, assign users and categories."
         },
         "el_pollo_loco": {
             "description": "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen."
