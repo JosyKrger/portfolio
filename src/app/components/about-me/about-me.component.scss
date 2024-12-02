@@ -58,6 +58,7 @@ section {
     .foreground {
         z-index: 2;
         margin-left: 40px;
+        filter: brightness(1) grayscale(0.8) contrast(1);
 
         @media(max-width: 880px) {
             margin-left: 0;
